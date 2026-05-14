@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>纳斯达克半导体财报追踪</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="companies_data.js"></script>
+<style>
+  :root {
+    --primary: #1a1f36;
+    --accent: #4f6ef7;
+    --accent2: #8b5cf6;
+    --green: #10b981;
+    --red: #ef4444;
+    --orange: #f59e0b;
+    --yellow: #fbbf24;
+    --card-bg: #ffffff;
+    --page-bg: #f0f2f8;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --muted: #64748b;
+    --banner-bg: #1a1f36;
+    --tag-chip-bg: #eff6ff;
+    --tag-chip-text: #2563eb;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    background: var(--page-bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ─── 顶部横幅 ─── */
+  #banner {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--banner-bg);
+    color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  }
+  .banner-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .banner-date {
+    font-size: 13px;
+    color: #94a3b8;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .banner-label {
+    font-size: 12px;
+    color: #7c8db5;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .banner-companies {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  .banner-chip {
+    background: rgba(79,110,247,0.18);
+    border: 1px solid rgba(79,110,247,0.4);
+    border-radius: 20px;
+    padding: 3px 11px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .banner-chip:hover { background: rgba(79,110,247,0.35); }
+  .banner-chip .days-badge {
+    background: var(--orange);
+    color: #fff;
+    border-radius: 10px;
+    padding: 1px 6px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .banner-chip.today-chip { border-color: var(--green); background: rgba(16,185,129,0.15); }
+  .banner-chip.today-chip .days-badge { background: var(--green); }
+  .banner-no-upcoming { font-size: 12px; color: #475569; }
+
+  /* ─── 主标题 ─── */
+  .page-header {
+    max-width: 1400px;
+    margin: 24px auto 0;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .page-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .page-subtitle { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  /* ─── 筛选栏 ─── */
+  .filter-bar {
+    max-width: 1400px;
+    margin: 16px auto 0;
+    padding: 0 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .search-box {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    background: #fff;
+    transition: border-color 0.15s;
+  }
+  .search-box:focus { border-color: var(--accent); }
+  .filter-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+  .filter-tab {
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--muted);
+  }
+  .filter-tab.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .filter-tab:hover:not(.active) { border-color: var(--accent); color: var(--accent); }
+  .sector-filter select {
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+  }
+
+  /* ─── 卡片网格 ─── */
+  .cards-grid {
+    max-width: 1400px;
+    margin: 20px auto 40px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  /* ─── 单个卡片 ─── */
+  .card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+    padding: 18px;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+    box-shadow: var(--shadow);
+    scroll-margin-top: 80px;
+  }
+  .card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  .card.soon { border-color: var(--orange) !important; }
+  .card.today-release { border-color: var(--green) !important; box-shadow: 0 0 0 2px rgba(16,185,129,0.2); }
+
+  .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+  .card-name-block { flex: 1; min-width: 0; }
+  .card-name { font-size: 15px; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-ticker { font-size: 12px; color: var(--muted); margin-top: 1px; }
+  .card-badges { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+
+  .quarter-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: var(--tag-chip-bg);
+    color: var(--tag-chip-text);
+    white-space: nowrap;
+  }
+  .status-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .status-badge.released { background: #dcfce7; color: #15803d; }
+  .status-badge.upcoming { background: #fff7ed; color: #c2410c; }
+  .status-badge.today { background: #dcfce7; color: #15803d; }
+  .status-badge.pending { background: #f1f5f9; color: #64748b; }
+
+  .sector-tag {
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: #f8f0ff;
+    color: var(--accent2);
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+
+  .card-divider { height: 1px; background: var(--border); margin: 10px 0; }
+
+  .card-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .metric-item { }
+  .metric-label { font-size: 10px; color: var(--muted); margin-bottom: 2px; }
+  .metric-value { font-size: 14px; font-weight: 600; color: var(--text); }
+  .metric-value.pos { color: var(--green); }
+  .metric-value.neg { color: var(--red); }
+
+  .card-pending-info { text-align: center; padding: 10px 0; }
+  .pending-date { font-size: 13px; color: var(--text); font-weight: 600; }
+  .pending-countdown { font-size: 22px; font-weight: 700; color: var(--accent); margin-top: 4px; }
+  .pending-countdown.today-text { color: var(--green); }
+  .pending-countdown.soon-text { color: var(--orange); }
+  .pending-subtitle { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  .card-track { font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+
+  /* ─── 空状态 ─── */
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+  }
+  .empty-state h3 { font-size: 18px; margin-bottom: 8px; }
+
+  /* ─── 弹窗 ─── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: #fff;
+    border-radius: 20px;
+    max-width: 760px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.2s ease;
+  }
+  @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+  .modal-header {
+    padding: 24px 28px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .modal-title { font-size: 20px; font-weight: 700; }
+  .modal-subtitle { font-size: 13px; color: var(--muted); margin-top: 3px; }
+  .modal-close {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: var(--page-bg);
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--muted);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .modal-close:hover { background: var(--border); }
+
+  .modal-body { padding: 20px 28px 28px; }
+
+  .modal-section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    margin-top: 20px;
+  }
+  .modal-section-title:first-child { margin-top: 0; }
+
+  .metrics-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .metrics-table th {
+    text-align: left;
+    padding: 8px 12px;
+    background: var(--page-bg);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  .metrics-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .metrics-table tr:last-child td { border-bottom: none; }
+  .yoy-pos { color: var(--green); font-weight: 600; }
+  .yoy-neg { color: var(--red); font-weight: 600; }
+
+  .guidance-card {
+    background: linear-gradient(135deg, #eff6ff, #f8f0ff);
+    border: 1px solid #c7d2fe;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-top: 8px;
+  }
+  .guidance-title { font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+  .guidance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .guidance-item { }
+  .guidance-label { font-size: 11px; color: var(--muted); }
+  .guidance-value { font-size: 14px; font-weight: 700; color: var(--text); }
+
+  .highlights-list { list-style: none; }
+  .highlights-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    line-height: 1.6;
+    display: flex;
+    gap: 8px;
+  }
+  .highlights-list li:last-child { border-bottom: none; }
+  .highlights-list li::before { content: '•'; color: var(--accent); font-size: 16px; flex-shrink: 0; line-height: 1.5; }
+
+  .chart-container { position: relative; height: 220px; margin-top: 8px; }
+
+  .fx-note {
+    font-size: 11px;
+    color: var(--muted);
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .pending-modal-info {
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--page-bg);
+    border-radius: 12px;
+  }
+  .pending-modal-date { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+  .pending-modal-countdown { font-size: 36px; font-weight: 800; color: var(--accent); }
+  .pending-modal-note { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+  /* ─── 统计条 ─── */
+  .stats-bar {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .stat-pill {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .stat-pill strong { color: var(--text); }
+  .stat-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ─── 响应式 ─── */
+  @media (max-width: 600px) {
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+    .modal { border-radius: 14px; }
+    .modal-header, .modal-body { padding: 16px 18px; }
+    .guidance-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 400px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 顶部横幅 -->
+<div id="banner">
+  <div class="banner-inner">
+    <div class="banner-date" id="bannerDate"></div>
+    <div class="banner-label">▸ 未来2周财报：</div>
+    <div class="banner-companies" id="bannerCompanies"></div>
+  </div>
+</div>
+
+<!-- 页面标题 -->
+<div class="page-header">
+  <div>
+    <div class="page-title">🔬 纳斯达克半导体财报追踪</div>
+    <div class="page-subtitle">25家核心半导体公司 · 2026财年 · 数据来源：公司官方发布 · 货币单位：USD</div>
+  </div>
+</div>
+
+<!-- 统计条 -->
+<div class="stats-bar" id="statsBar" style="margin-top:12px;"></div>
+
+<!-- 筛选栏 -->
+<div class="filter-bar">
+  <input class="search-box" id="searchInput" placeholder="🔍 搜索公司名 / Ticker..." autocomplete="off">
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all">全部</button>
+    <button class="filter-tab" data-filter="released">已发布</button>
+    <button class="filter-tab" data-filter="upcoming">即将发布</button>
+    <button class="filter-tab" data-filter="pending">待发布</button>
+  </div>
+  <div class="sector-filter">
+    <select id="sectorSelect">
+      <option value="all">全部赛道</option>
+      <option value="芯片设计">芯片设计</option>
+      <option value="IDM 一体化">IDM 一体化</option>
+      <option value="晶圆制造">晶圆制造</option>
+      <option value="半导体设备">半导体设备</option>
+      <option value="存储芯片">存储芯片</option>
+      <option value="EDA/IP">EDA/IP</option>
+      <option value="封装测试">封装测试</option>
+    </select>
+  </div>
+</div>
+
+<!-- 卡片网格 -->
+<div class="cards-grid" id="cardsGrid"></div>
+
+<!-- 详情弹窗 -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-subtitle" id="modalSubtitle"></div>
+      </div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════
+// 数据层
+// ════════════════════════════════════════════════
+
+// 汇率（2026年5月参考汇率）
+const FX = {
+  USD: 1,
+  TWD: 0.031,   // 台币
+  KRW: 0.00072, // 韩元
+  JPY: 0.0065,  // 日元
+  EUR: 1.08,    // 欧元
+};
+
+function toUSD(val, currency = 'USD') {
+  return val * (FX[currency] || 1);
+}
+
+// 今日日期
+const TODAY = new Date();
+TODAY.setHours(0,0,0,0);
+
+function parseDate(str) {
+  if (!str) return null;
+  const d = new Date(str);
+  d.setHours(0,0,0,0);
+  return d;
+}
+
+function daysFromToday(dateStr) {
+  const d = parseDate(dateStr);
+  if (!d) return null;
+  return Math.round((d - TODAY) / 86400000);
+}
+
+// 季度计算
+function getQuarter(dateStr, reportYear) {
+  // 根据财报日期反推对应的财报季度
+  const d = parseDate(dateStr);
+  if (!d) return '';
+  // 以发布日期推算上个季度（通常滞后1-2个月）
+  return null;
+}
+
+// 公司数据（2026财年）
+// releaseDate: 财报发布日期（若已知）
+// status: 'released' | 'pending'
+// quarter: 对应财报季度（如 '2026Q1'）
+// currency: 数据货币
+// rev: 营收（亿）, netIncome: 净利润（亿）, grossMargin: 毛利率(%)，eps: EPS，epsGaap: GAAP EPS
+// guidance: 下季度指引
+// highlights: 业务亮点
+// history: 近12季营收（亿USD），从最早到最近
+const COMPANIES = [
+  {
+    id: 'nvda',
+    nameCN: '英伟达',
+    nameEN: 'NVIDIA',
+    ticker: 'NVDA',
+    sector: '芯片设计',
+    track: 'AI GPU、数据中心、自动驾驶芯片',
+    releaseDate: '2026-05-28',
+    status: 'pending',
+    quarter: '2026Q1',
+    currency: 'USD',
+    guidance: { rev: 35.1, eps: 0.78, note: '数据中心持续强劲增长' },
+    highlights: [
+      '2025Q4（FY2026Q4）营收393亿，同比增78%，数据中心创历史新高',
+      'Blackwell架构芯片出货大幅超预期，单季出货超110亿美元',
+      '汽车业务季度营收首破5亿美元',
+    ],
+    // 近12季营收（亿USD）：FY24Q1~FY26Q4 为已知数，26Q1e为预估
+    history: [72.3, 90.5, 122.1, 182.6, 260.4, 302.0, 356.4, 393.4, null, null, null, null],
+    historyLabels: ['24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','25Q4','26Q1e','','',''],
+    released: null,
+  },
+  {
+    id: 'amd',
+    nameCN: '超威半导体',
+    nameEN: 'Advanced Micro Devices',
+    ticker: 'AMD',
+    sector: '芯片设计',
+    track: 'CPU、GPU、数据中心 AI 芯片',
+    releaseDate: '2026-04-29',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'USD',
+    released: {
+      rev: 1.6,      // 亿美元
+      netIncome: 19.3,
+      grossMargin: 74.6,
+      eps: 0.44,
+      epsGaap: 0.44,
+      revYoY: '+159.7%',
+      netIncomeYoY: '+52.1%',
+    },
+    guidance: { rev: '$76~82亿', eps: '$1.05~$1.15', note: 'MI300系列出货加速，数据中心季度营收预计突破40亿' },
+    highlights: [
+      '数据中心营收35.7亿美元，同比增超80%，MI300X持续供不应求',
+      'EPYC服务器CPU市场份额突破35%，创历史纪录',
+      '收购ZT Systems，加速AI基础设施布局',
+      '游戏业务受库存去化影响，短期承压',
+    ],
+    // 近12季营收（亿USD）：23Q2~26Q1
+    history: [53.5, 57.1, 61.1, 63.7, 68.0, 67.3, 71.7, 72.4, 68.1, 66.8, 69.3, 73.4],
+    historyLabels: ['23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','25Q4','26Q1'],
+  },
+  {
+    id: 'avgo',
+    nameCN: '博通',
+    nameEN: 'Broadcom',
+    ticker: 'AVGO',
+    sector: '芯片设计',
+    track: '网络通信、服务器、企业级ASIC',
+    releaseDate: '2026-06-05',
+    status: 'pending',
+    quarter: '2026Q2FY',  // AVGO财年从11月开始，Q2=2月-4月
+    currency: 'USD',
+    guidance: { rev: 4.5, eps: 1.14, note: 'AI ASIC及VMware云业务双轮驱动' },
+    highlights: [
+      '2026Q1FY营收142亿美元（2025年12月~2026年2月），同比增54%，远超预期',
+      'VMware整合超预期，订阅模式加速转型',
+      '谷歌、Meta ASIC定制芯片订单持续增加',
+    ],
+    // history近8季已知数据（亿USD），AVGO财年
+    history: [87.0, 92.3, 96.0, 119.6, 130.8, 142.1, null, null, null, null, null, null],
+    historyLabels: ['24Q1FY','24Q2FY','24Q3FY','24Q4FY','25Q1FY','26Q1FY','','','','','',''],
+  },
+  {
+    id: 'qcom',
+    nameCN: '高通',
+    nameEN: 'Qualcomm',
+    ticker: 'QCOM',
+    sector: '芯片设计',
+    track: '手机SoC、基带、射频、汽车半导体',
+    releaseDate: '2026-04-30',
+    status: 'released',
+    quarter: '2026Q2',
+    currency: 'USD',
+    released: {
+      rev: 10.6,
+      netIncome: 2.8,
+      grossMargin: 227.3,
+      eps: 2.52,       // Non-GAAP EPS（调整后，高于GAAP）
+      epsGaap: 2.41,   // GAAP EPS
+      revYoY: '+6.7%',
+      netIncomeYoY: '+20.1%',
+    },
+    guidance: { rev: '$105~115亿', eps: '$2.60~$2.80', note: '汽车芯片年化收入已破40亿，PC/XR持续扩张' },
+    highlights: [
+      'Snapdragon 8 Elite旗舰SoC出货强劲，AI手机渗透率加速',
+      '汽车业务营收10.7亿，同比增52%，拿下多家车企新订单',
+      'PC平台Snapdragon X系列市场份额持续扩大',
+      '手机QCT芯片营收76.3亿，超市场预期',
+    ],
+    history: [86.5, 88.8, 89.7, 93.2, 92.4, 95.7, 110.7, 98.6, 94.4, 101.5, 113.9, 101.3],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q2'],
+  },
+  {
+    id: 'arm',
+    nameCN: '安谋控股',
+    nameEN: 'Arm Holdings',
+    ticker: 'ARM',
+    sector: '芯片设计',
+    track: 'CPU IP架构授权',
+    releaseDate: '2026-05-07',
+    status: 'released',
+    quarter: '2026Q4FY',
+    currency: 'USD',
+    released: {
+      rev: 13.3,
+      netIncome: 5.1,
+      grossMargin: 96.2,
+      eps: 0.49,
+      epsGaap: 0.31,
+      revYoY: '+34.3%',
+      netIncomeYoY: '+68.2%',
+    },
+    guidance: { rev: '$13.5~14.5亿', eps: '$0.50~$0.55', note: '版税收入增长加速，AI芯片采用Armv9架构比例提升' },
+    highlights: [
+      '版税营收8.2亿，同比增38%，Armv9占比超50%',
+      '授权营收5.1亿，云、数据中心及汽车赛道新签大单',
+      'AI推理芯片普遍采用Arm架构，生态覆盖持续扩大',
+      '全球Arm芯片累计出货突破3300亿颗里程碑',
+    ],
+    history: [6.75, 7.56, 8.06, 9.28, 10.28, 9.39, 11.07, 11.71, 11.34, 12.79, 12.84, 13.3],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','25Q4FY'],
+  },
+  {
+    id: 'mrvl',
+    nameCN: '迈威尔科技',
+    nameEN: 'Marvell Technology',
+    ticker: 'MRVL',
+    sector: '芯片设计',
+    track: '数据中心、网络处理器、存储芯片',
+    releaseDate: '2026-05-29',
+    status: 'pending',
+    quarter: '2026Q1FY',
+    currency: 'USD',
+    guidance: { rev: '$18~20亿', eps: '$0.55~$0.65', note: '定制ASIC及光子互联需求旺盛' },
+    highlights: [
+      '2025Q4营收数据中心占比超75%',
+      '与亚马逊、谷歌合作自研ASIC项目进入量产阶段',
+      '5G电信基础设施业务持续恢复',
+    ],
+    history: [12.24, 14.22, 15.16, 13.22, 11.61, 14.58, 17.58, 18.44, 18.17, 18.15, 20.16, null],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q1e'],
+  },
+  {
+    id: 'mpwr',
+    nameCN: '芯源系统',
+    nameEN: 'Monolithic Power Systems',
+    ticker: 'MPWR',
+    sector: '芯片设计',
+    track: '电源管理芯片、工业/汽车',
+    releaseDate: '2026-04-30',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'USD',
+    released: {
+      rev: 0.1,
+      netIncome: 0.1,
+      grossMargin: 387.3,
+      eps: 2.81,
+      epsGaap: 1.97,
+      revYoY: '+33.3%',
+      netIncomeYoY: '+18.7%',
+    },
+    guidance: { rev: '$6.5~7.0亿', eps: '$2.35~$2.55', note: 'AI服务器电源管理芯片订单增速加快' },
+    highlights: [
+      'AI服务器相关收入占比超30%，同比增超100%',
+      '汽车业务实现两位数增长，新能源车客户持续扩充',
+      '工业市场逐步回暖，库存去化基本完成',
+    ],
+    // 近12季营收（亿USD）：23Q2~26Q1
+    history: [4.4, 4.6, 4.58, 4.59, 4.69, 4.78, 5.21, 5.87, 5.72, 6.22, 6.48, 6.22],
+    historyLabels: ['23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','25Q4','26Q1'],
+  },
+  {
+    id: 'intc',
+    nameCN: '英特尔',
+    nameEN: 'Intel',
+    ticker: 'INTC',
+    sector: 'IDM 一体化',
+    track: 'CPU、数据中心、FPGA、晶圆代工',
+    releaseDate: '2026-04-24',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'USD',
+    released: {
+      rev: 14.8,
+      netIncome: -3.7,
+      grossMargin: 31.6,
+      eps: -0.73,
+      epsGaap: -0.19,
+      revYoY: '+7.7%',
+      netIncomeYoY: '-65.2%',
+    },
+    guidance: { rev: '$125~135亿', eps: '$0.08~$0.18', note: '晶圆代工业务持续亏损，Core Ultra PC出货量回升' },
+    highlights: [
+      'Core Ultra 200系列助力AI PC市场份额稳定',
+      'Intel Foundry Services亏损收窄，外部客户订单增加',
+      '出售Altera FPGA业务股权，聚焦核心业务',
+      '欧洲工厂建设进度延迟，成本压力持续',
+    ],
+    history: [192.8, 170.4, 154.2, 126.9, 128.8, 130.2, 133.4, 124.0, 127.0, 131.9, 138.3, 126.7],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q1'],
+  },
+  {
+    id: 'txn',
+    nameCN: '德州仪器',
+    nameEN: 'Texas Instruments',
+    ticker: 'TXN',
+    sector: 'IDM 一体化',
+    track: '模拟芯片、电源管理、工业/汽车',
+    releaseDate: '2026-04-22',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'USD',
+    released: {
+      rev: 3.4,
+      netIncome: 1.2,
+      grossMargin: 68.0,
+      eps: 1.28,
+      epsGaap: 1.28,
+      revYoY: '-0.8%',
+      netIncomeYoY: '+9.3%',
+    },
+    guidance: { rev: '$38~42亿', eps: '$1.28~$1.52', note: '工业市场复苏信号增强，汽车库存趋于正常' },
+    highlights: [
+      '工业业务同比转正，需求复苏好于预期',
+      '汽车芯片库存消化基本完成，新一轮补货周期开启',
+      '美国本土产能持续扩张，CHIPS法案补贴落地',
+    ],
+    history: [47.2, 45.3, 46.4, 41.8, 36.6, 35.3, 37.7, 39.7, 37.0, 37.8, 40.0, 38.2],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q1'],
+  },
+  {
+    id: 'adi',
+    nameCN: '亚德诺',
+    nameEN: 'Analog Devices',
+    ticker: 'ADI',
+    sector: 'IDM 一体化',
+    track: '高性能模拟、传感器、汽车/工业',
+    releaseDate: '2026-05-21',
+    status: 'pending',
+    quarter: '2026Q2FY',
+    currency: 'USD',
+    guidance: { rev: 1.4, eps: 0.78, note: '工业及汽车模拟芯片需求稳步恢复' },
+    highlights: [
+      '2026Q1营收27.3亿，同比增17%',
+      '工业自动化和能源基础设施需求回暖',
+      '与特斯拉合作BMS芯片批量出货',
+    ],
+    history: [32.0, 31.5, 28.9, 25.0, 22.1, 22.9, 24.4, 28.0, 27.3, 27.7, 28.8, null],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1FY','25Q2FY','25Q3FY','26Q2e'],
+  },
+  {
+    id: 'on',
+    nameCN: '安森美半导体',
+    nameEN: 'On Semiconductor',
+    ticker: 'ON',
+    sector: 'IDM 一体化',
+    track: '功率器件、碳化硅、汽车电子',
+    releaseDate: '2026-04-28',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'USD',
+    released: {
+      rev: 1.4,
+      netIncome: -0.5,
+      grossMargin: 21.3,
+      eps: -1.15,
+      epsGaap: 0.56,
+      revYoY: '+52.4%',
+      netIncomeYoY: '-8.4%',
+    },
+    guidance: { rev: '$14.5~15.5亿', eps: '$0.68~$0.80', note: '碳化硅SiC模块新订单创季度新高' },
+    highlights: [
+      '碳化硅收入季度环比增长超20%，长期协议订单超40亿美元',
+      '汽车业务占比稳定在60%以上',
+      '工业需求仍处于低位但触底迹象明显',
+    ],
+    history: [19.6, 21.1, 20.9, 20.1, 17.3, 17.3, 17.3, 17.8, 15.4, 16.3, 14.6, 14.6],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q1'],
+  },
+  {
+    id: 'mchp',
+    nameCN: '微芯科技',
+    nameEN: 'Microchip Technology',
+    ticker: 'MCHP',
+    sector: 'IDM 一体化',
+    track: 'MCU、模拟芯片、嵌入式、工业',
+    releaseDate: '2026-05-08',
+    status: 'released',
+    quarter: '2026Q4FY',
+    currency: 'USD',
+    released: {
+      rev: 1.2,
+      netIncome: -0.1,
+      grossMargin: 46.3,
+      eps: -0.1,
+      epsGaap: 0.15,
+      revYoY: '-18.3%',
+      netIncomeYoY: '-60.1%',
+    },
+    guidance: { rev: '$11.5~12.5亿', eps: '$0.25~$0.40', note: '工业MCU需求有望触底回升，下半年改善预期' },
+    highlights: [
+      '工业下游库存去化接近尾声，新订单开始恢复',
+      'MCU汽车线控底盘产品份额持续提升',
+      '削减资本支出，强化自由现金流',
+    ],
+    history: [22.1, 22.5, 22.5, 21.5, 18.8, 15.7, 12.5, 11.8, 11.0, 10.6, 11.0, 11.2],
+    historyLabels: ['23Q1FY','23Q2FY','23Q3FY','23Q4FY','24Q1FY','24Q2FY','24Q3FY','24Q4FY','25Q1FY','25Q2FY','25Q3FY','26Q4FY'],
+  },
+  {
+    id: 'nxpi',
+    nameCN: '恩智浦',
+    nameEN: 'NXP Semiconductors',
+    ticker: 'NXPI',
+    sector: 'IDM 一体化',
+    track: '汽车半导体、车规芯片、安全控制',
+    releaseDate: '2026-04-28',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'USD',
+    released: {
+      rev: 30.2,
+      netIncome: 5.8,
+      grossMargin: 52.8,
+      eps: 3.24,
+      epsGaap: 2.51,
+      revYoY: '+3.1%',
+      netIncomeYoY: '+4.2%',
+    },
+    guidance: { rev: '$30~33亿', eps: '$3.30~$3.70', note: '汽车域控制器SOC份额增长，工业IoT回暖' },
+    highlights: [
+      '汽车营收22.1亿，占比超73%，S32G及S32K系列出货增长',
+      '工业物联网业务小幅恢复，订单能见度改善',
+      '与法拉利、宝马合作新一代座舱域控制器',
+    ],
+    history: [32.4, 32.9, 34.4, 33.4, 31.1, 29.3, 29.6, 30.0, 28.1, 29.2, 29.3, 30.2],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q1'],
+  },
+  {
+    id: 'stm',
+    nameCN: '意法半导体',
+    nameEN: 'STMicroelectronics',
+    ticker: 'STM',
+    sector: 'IDM 一体化',
+    track: '汽车电子、MEMS、功率器件',
+    releaseDate: '2026-04-24',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'USD',  // 已换算为USD（原始EUR×1.08）
+    released: {
+      // STM以USD报告，2026Q1营收约25.2亿USD（约23.3亿EUR × 1.08）
+      rev: 25.2,
+      netIncome: 0.9,
+      grossMargin: 33.8,
+      eps: 0.09,
+      epsGaap: 0.09,
+      revYoY: '-17.2%',
+      netIncomeYoY: '-79.0%',
+      fxNote: '意法半导体以USD对外报告，无需换算',
+    },
+    guidance: { rev: '$26~30亿', eps: '$0.20~$0.40', note: '汽车/工业市场下半年改善，成本优化持续推进' },
+    highlights: [
+      '汽车电子营收同比下滑，苹果订单承压',
+      'MEMS传感器在消费电子中市场份额稳定',
+      '碳化硅产线良率提升，具备规模效益',
+    ],
+    history: [37.5, 43.2, 43.3, 41.1, 35.9, 32.4, 30.0, 31.1, 29.6, 29.4, 30.5, 25.2],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q1'],
+  },
+  {
+    id: 'tsm',
+    nameCN: '台积电',
+    nameEN: 'TSMC',
+    ticker: 'TSM',
+    sector: '晶圆制造',
+    track: '先进制程晶圆代工',
+    releaseDate: '2026-04-17',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'TWD',
+    released: {
+      // 台积电2026Q1营收约8393亿台币（约260亿USD，@0.031换算）
+      rev: 8393,       // 亿台币（原始单位）
+      revUSD: 260.2,   // 亿USD（直接使用，已换算）
+      netIncome: null,
+      grossMargin: 58.8,
+      eps: null,
+      revYoY: '+41.6%',
+      netIncomeYoY: '+60.3%',
+      fxNote: 'TWD→USD @0.031，8393亿TWD ≈ 260.2亿USD（2026年5月参考汇率）',
+    },
+    guidance: { rev: '$286~296亿USD', eps: null, note: '3nm/2nm需求饱满，先进封装CoWoS产能持续扩张' },
+    highlights: [
+      '3nm制程收入占比达22%，AI芯片需求驱动2nm提前满产',
+      'CoWoS先进封装产能扩大至月产超10万片',
+      'AZ/日本熊本厂投产，全球化布局提速',
+      '智慧型手机复苏叠加AI服务器强劲，营收创历史新高',
+    ],
+    // history单位：亿USD（已换算）
+    history: [167.9, 154.3, 147.0, 188.4, 202.3, 207.6, 228.4, 243.0, 250.0, 235.3, 260.0, 260.2],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q1'],
+    revIsUSD: true,  // history与revUSD均已换算为USD亿
+  },
+  {
+    id: 'gfs',
+    nameCN: '格罗方德',
+    nameEN: 'GlobalFoundries',
+    ticker: 'GFS',
+    sector: '晶圆制造',
+    track: '成熟制程代工、汽车/物联网',
+    releaseDate: '2026-05-06',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'USD',
+    released: {
+      rev: 17.1,
+      netIncome: 1.0,
+      grossMargin: 22.3,
+      eps: 0.19,
+      epsGaap: 0.16,
+      revYoY: '+2.2%',
+      netIncomeYoY: '-28.6%',
+    },
+    guidance: { rev: '$17~18.5亿', eps: '$0.18~$0.28', note: '汽车/工业成熟制程需求温和回升' },
+    highlights: [
+      '汽车和通信芯片占总营收比重增至50%以上',
+      '美国马耳他工厂扩产进度顺利，CHIPS法案补贴获批',
+      '与高通合作成熟制程代工规模扩大',
+    ],
+    history: [18.5, 18.4, 18.5, 18.5, 16.5, 16.3, 16.7, 17.0, 16.1, 17.1, 18.2, 17.1],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q1'],
+  },
+  {
+    id: 'umc',
+    nameCN: '联电',
+    nameEN: 'United Microelectronics',
+    ticker: 'UMC',
+    sector: '晶圆制造',
+    track: '成熟制程、特殊工艺代工',
+    releaseDate: '2026-04-25',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'TWD',
+    released: {
+      // 联电2026Q1营收约570亿台币（约17.7亿USD）
+      rev: 5700,      // 亿台币原始值（注：联电营收单位是百万台币，约570亿台币）
+      revUSD: 17.7,   // 亿USD（已换算，直接使用）
+      grossMargin: 31.5,
+      eps: null,
+      revYoY: '+3.5%',
+      netIncomeYoY: null,
+      fxNote: 'TWD→USD @0.031，约570亿TWD ≈ 17.7亿USD（2026年5月参考汇率）',
+    },
+    guidance: { rev: '约$17~18亿USD', eps: null, note: '28nm工艺稳定出货，特殊工艺订单回升' },
+    highlights: [
+      '客户库存消化基本结束，新一轮补货需求启动',
+      '28nm成熟制程稼动率超90%',
+      '与Intel合作特殊制程项目顺利推进',
+    ],
+    history: [16.2, 16.5, 16.9, 16.0, 15.3, 15.0, 15.5, 15.8, 15.2, 15.8, 16.8, 17.7],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q1'],
+    revIsUSD: true,
+  },
+  {
+    id: 'asml',
+    nameCN: '阿斯麦',
+    nameEN: 'ASML Holding',
+    ticker: 'ASML',
+    sector: '半导体设备',
+    track: 'EUV/DUV光刻机',
+    releaseDate: '2026-04-16',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'EUR',
+    released: {
+      rev: 75.2,            // 亿欧元（原始）
+      revUSD: (75.2 * 1.08), // 约81.2亿USD
+      grossMargin: 54.0,
+      eps: 6.32,
+      epsGaap: 6.32,
+      revYoY: '+45.7%',
+      netIncomeYoY: '+74.2%',
+      fxNote: 'EUR→USD @1.08（2026年5月参考汇率），€75.2亿 ≈ $81.2亿USD',
+    },
+    guidance: { rev: '€80~85亿（约$86~92亿USD）', eps: null, note: 'EUV超高NA交付加速，中国市场贡献保持稳定' },
+    highlights: [
+      'High-NA EUV系统首批交付，英特尔及三星获得优先产能',
+      'EUV年度订单超100台，Backlog创历史新高',
+      'Deep UV浸没式光刻机中国订单维持高位',
+      '2025年营收已突破280亿欧元，2026年目标300亿欧元',
+    ],
+    // history单位：亿欧元（原始），图表渲染时会×1.08换USD
+    history: [66.8, 69.0, 68.7, 72.0, 52.3, 62.4, 73.6, 91.6, 88.6, 92.8, 83.6, 75.2],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q1'],
+    revIsUSD: false,
+    revCurrencySymbol: '€',
+  },
+  {
+    id: 'amat',
+    nameCN: '应用材料',
+    nameEN: 'Applied Materials',
+    ticker: 'AMAT',
+    sector: '半导体设备',
+    track: '沉积、刻蚀、工艺设备',
+    releaseDate: '2026-05-15',
+    status: 'pending',
+    quarter: '2026Q2FY',
+    currency: 'USD',
+    guidance: { rev: 4.2, eps: 1.45, note: 'AI晶圆厂投资驱动设备需求，Gate-All-Around工艺设备份额扩大' },
+    highlights: [
+      '2026Q1营收72.7亿，同比增15%',
+      '台积电/三星2nm工艺设备大量采购',
+      '服务与耗材(AGS)业务持续稳健增长',
+    ],
+    history: [66.3, 63.6, 67.2, 71.2, 68.5, 66.7, 70.3, 71.7, 72.7, null, null, null],
+    historyLabels: ['23Q2FY','23Q3FY','23Q4FY','24Q1FY','24Q2FY','24Q3FY','24Q4FY','25Q1FY','25Q2FY','','',''],
+  },
+  {
+    id: 'lrcx',
+    nameCN: '拉姆研究',
+    nameEN: 'Lam Research',
+    ticker: 'LRCX',
+    sector: '半导体设备',
+    track: '刻蚀、薄膜沉积设备',
+    releaseDate: '2026-04-23',
+    status: 'released',
+    quarter: '2026Q3FY',
+    currency: 'USD',
+    released: {
+      rev: 0.7,
+      netIncome: 1.3,
+      grossMargin: 351.1,
+      eps: 1.03,
+      epsGaap: 0.84,
+      revYoY: '+35.3%',
+      netIncomeYoY: '+38.7%',
+    },
+    guidance: { rev: '$47~53亿', eps: '$0.93~$1.10', note: 'NAND投资回升，先进逻辑制程刻蚀需求强劲' },
+    highlights: [
+      'DRAM/HBM相关刻蚀设备需求大幅增长',
+      'NAND扩产重启，存储设备订单回暖',
+      'CSBG服务业务创单季新高',
+    ],
+    history: [39.1, 35.5, 37.0, 37.6, 37.8, 38.9, 43.1, 47.3, 45.7, null, null, null],
+    historyLabels: ['23Q1FY','23Q2FY','23Q3FY','23Q4FY','24Q1FY','24Q2FY','24Q3FY','24Q4FY','26Q3FY','','',''],
+  },
+  {
+    id: 'klac',
+    nameCN: '科磊',
+    nameEN: 'KLA Corporation',
+    ticker: 'KLAC',
+    sector: '半导体设备',
+    track: '量检测、缺陷检测设备',
+    releaseDate: '2026-04-30',
+    status: 'released',
+    quarter: '2026Q3FY',
+    currency: 'USD',
+    released: {
+      rev: 0.4,
+      netIncome: 0.8,
+      grossMargin: 61.5,
+      eps: 8.16,
+      epsGaap: 8.15,
+      revYoY: '+21.1%',
+      netIncomeYoY: '+35.6%',
+    },
+    guidance: { rev: '$33~37亿', eps: '$8.50~$9.50', note: '先进制程良率要求提升，量检测设备需求刚性强' },
+    highlights: [
+      '先进制程量检测设备市场份额超65%',
+      '2nm/1.4nm制程节点设备认证顺利完成',
+      '全球晶圆厂扩建带动检测设备采购增加',
+    ],
+    history: [24.5, 25.3, 25.8, 25.4, 24.1, 25.6, 28.1, 30.1, 31.6, 32.4, 33.0, null],
+    historyLabels: ['23Q1FY','23Q2FY','23Q3FY','23Q4FY','24Q1FY','24Q2FY','24Q3FY','24Q4FY','25Q1FY','25Q2FY','26Q3FY',''],
+  },
+  {
+    id: 'mu',
+    nameCN: '美光科技',
+    nameEN: 'Micron Technology',
+    ticker: 'MU',
+    sector: '存储芯片',
+    track: 'DRAM、NAND、HBM存储',
+    releaseDate: '2026-06-25',
+    status: 'pending',
+    quarter: '2026Q3FY',
+    currency: 'USD',
+    guidance: { rev: 5.6, eps: 1.41, note: 'HBM3E出货加速，AI存储需求持续旺盛' },
+    highlights: [
+      '2026Q2营收86.5亿，HBM收入占比提升至25%',
+      'HBM3E份额超越竞争对手，大客户锁定长约',
+      'NAND价格企稳回升，存储周期向上',
+    ],
+    history: [36.7, 37.5, 43.0, 47.7, 58.2, 66.4, 81.7, 86.5, null, null, null, null],
+    historyLabels: ['24Q1FY','24Q2FY','24Q3FY','24Q4FY','25Q1FY','25Q2FY','25Q3FY','26Q2FY','','','',''],
+  },
+  {
+    id: 'snps',
+    nameCN: '新思科技',
+    nameEN: 'Synopsys',
+    ticker: 'SNPS',
+    sector: 'EDA/IP',
+    track: 'EDA设计软件、IP核',
+    releaseDate: '2026-05-21',
+    status: 'pending',
+    quarter: '2026Q2FY',
+    currency: 'USD',
+    guidance: { rev: 0.7, eps: 0.34, note: 'AI芯片设计需求驱动EDA工具授权增长' },
+    highlights: [
+      '2026Q1营收17.1亿，AI辅助EDA工具营收同比增30%',
+      'Ansys收购整合顺利，协同效应初显',
+      '云端EDA订阅模式加速渗透大客户',
+    ],
+    history: [12.7, 13.1, 13.3, 14.1, 15.0, 15.3, 15.8, 16.5, 17.1, null, null, null],
+    historyLabels: ['23Q1FY','23Q2FY','23Q3FY','23Q4FY','24Q1FY','24Q2FY','24Q3FY','24Q4FY','26Q1FY','','',''],
+  },
+  {
+    id: 'cdns',
+    nameCN: '楷登电子',
+    nameEN: 'Cadence',
+    ticker: 'CDNS',
+    sector: 'EDA/IP',
+    track: 'EDA仿真、验证工具',
+    releaseDate: '2026-04-28',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'USD',
+    released: {
+      rev: 0.5,
+      netIncome: 0.1,
+      grossMargin: 170.5,
+      eps: 1,
+      epsGaap: 0.88,
+      revYoY: '+14.9%',
+      netIncomeYoY: '+29.4%',
+    },
+    guidance: { rev: '$12.2~13亿', eps: '$1.28~$1.38', note: 'Cerebrus AI EDA工具订阅快速增长' },
+    highlights: [
+      'Cadence AI系列工具订单同比增长超80%',
+      '系统设计业务（Clarity/Celsius）首次突破单季2亿美元',
+      '芯片复杂度提升推动验证及仿真工具需求增加',
+    ],
+    history: [9.4, 9.8, 10.1, 10.5, 11.0, 10.9, 11.2, 11.6, 11.7, 11.1, 11.8, null],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','26Q1'],
+  },
+  {
+    id: 'asx',
+    nameCN: '日月光投控',
+    nameEN: 'ASE Group',
+    ticker: 'ASX',
+    sector: '封装测试',
+    track: '芯片封装、测试、先进封测',
+    releaseDate: '2026-04-25',
+    status: 'released',
+    quarter: '2026Q1',
+    currency: 'TWD',
+    released: {
+      // 日月光2026Q1营收约1748亿台币（约54.2亿USD）
+      rev: 1748,        // 亿台币原始值
+      revUSD: 54.2,     // 亿USD（已换算，1748×0.031≈54.2）
+      grossMargin: 19.2,
+      eps: null,
+      revYoY: '+24.6%',
+      netIncomeYoY: null,
+      fxNote: 'TWD→USD @0.031，1748亿TWD ≈ 54.2亿USD（2026年5月参考汇率）',
+    },
+    guidance: { rev: '约$57~62亿USD', eps: null, note: '先进封测CoWoS、SoIC需求爆发，承接台积电外溢订单' },
+    highlights: [
+      'AI芯片先进封测订单大幅增加，产能持续扩充',
+      'SiP系统级封装在穿戴设备/消费电子高速增长',
+      '与NVIDIA、AMD合作先进异构封装量产推进',
+    ],
+    // history单位：亿USD（已换算）
+    history: [42.5, 43.8, 46.2, 45.5, 43.9, 46.2, 50.3, 54.2, 54.2, null, null, null],
+    historyLabels: ['23Q1','23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','26Q1','','',''],
+    revIsUSD: true,
+  },
+];
+
+// ════════════════════════════════════════════════
+// 工具函数
+// ════════════════════════════════════════════════
+
+function formatDate(str) {
+  const d = parseDate(str);
+  if (!d) return '-';
+  return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`;
+}
+
+function getStatus(company) {
+  if (company.status === 'released') return 'released';
+  const days = daysFromToday(company.releaseDate);
+  if (days === 0) return 'today';
+  if (days !== null && days > 0 && days <= 3) return 'upcoming';
+  return 'pending';
+}
+
+function getCountdownText(company) {
+  const days = daysFromToday(company.releaseDate);
+  if (days === 0) return { text: '🎯 今天发布', cls: 'today-text' };
+  if (days === 1) return { text: '明天发布', cls: 'soon-text' };
+  if (days < 0) return { text: `${Math.abs(days)}天前发布`, cls: '' };
+  return { text: `还有 ${days} 天`, cls: days <= 7 ? 'soon-text' : '' };
+}
+
+function getRevDisplay(company) {
+  if (company.status !== 'released') return '—';
+  const r = company.released;
+  if (!r) return '—';
+  if (company.revIsUSD) {
+    // 已换算为USD亿，优先使用revUSD字段
+    const val = (r.revUSD !== undefined) ? r.revUSD : r.rev;
+    return `$${(+val).toFixed(1)}亿`;
+  }
+  if (company.currency === 'USD') {
+    return `$${r.rev.toFixed(1)}亿`;
+  }
+  if (company.currency === 'TWD') {
+    return `$${(r.rev * 0.031).toFixed(1)}亿`;
+  }
+  if (company.currency === 'EUR') {
+    // 卡片显示欧元原始值 + USD换算
+    const usd = (r.revUSD !== undefined) ? r.revUSD : (r.rev * 1.08);
+    return `€${r.rev.toFixed(1)}亿 <span style="color:var(--muted);font-size:11px">($${(+usd).toFixed(1)}亿)</span>`;
+  }
+  return `${r.rev}亿`;
+}
+
+function getRevDisplayFull(company) {
+  if (company.status !== 'released') return '—';
+  const r = company.released;
+  if (!r) return '—';
+  if (company.revIsUSD) {
+    const val = (r.revUSD !== undefined) ? r.revUSD : r.rev;
+    // 对台积电等，同时显示原始台币金额
+    if (company.currency === 'TWD') {
+      return `NT$${r.rev.toLocaleString()}亿 → $${(+val).toFixed(2)}亿 USD`;
+    }
+    return `$${(+val).toFixed(2)}亿 USD`;
+  }
+  if (company.currency === 'USD') return `$${r.rev.toFixed(2)}亿 USD`;
+  if (company.currency === 'TWD') return `NT$${r.rev.toFixed(0)}亿 → $${(r.rev*0.031).toFixed(2)}亿 USD`;
+  if (company.currency === 'EUR') return `€${r.rev.toFixed(2)}亿 → $${(r.rev*1.08).toFixed(2)}亿 USD`;
+  return `${r.rev}亿`;
+}
+
+function getNetIncomeDisplay(company) {
+  if (company.status !== 'released' || !company.released) return '—';
+  const r = company.released;
+  let ni = r.netIncome;
+  if (ni === null || ni === undefined) return '—';
+  if (company.revIsUSD) return `$${ni.toFixed(2)}亿 USD`;
+  if (company.currency === 'TWD') return `$${(ni*0.031).toFixed(2)}亿 USD`;
+  if (company.currency === 'EUR') return `$${(ni*1.08).toFixed(2)}亿 USD`;
+  return `$${ni.toFixed(2)}亿 USD`;
+}
+
+// ════════════════════════════════════════════════
+// 渲染函数
+// ════════════════════════════════════════════════
+
+// 顶部横幅
+function renderBanner() {
+  const now = new Date();
+  document.getElementById('bannerDate').textContent =
+    `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日`;
+
+  const bannerList = COMPANIES.filter(c => {
+    const days = daysFromToday(c.releaseDate);
+    return days !== null && days >= 0 && days <= 14 && c.status !== 'released';
+  }).sort((a,b) => daysFromToday(a.releaseDate) - daysFromToday(b.releaseDate));
+
+  const container = document.getElementById('bannerCompanies');
+  if (!bannerList.length) {
+    container.innerHTML = '<span class="banner-no-upcoming">未来2周暂无待发布财报</span>';
+    return;
+  }
+  container.innerHTML = bannerList.map(c => {
+    const days = daysFromToday(c.releaseDate);
+    const isToday = days === 0;
+    const badge = isToday ? '今天' : `${days}天后`;
+    return `<span class="banner-chip ${isToday?'today-chip':''}" onclick="scrollToCard('${c.id}')">
+      ${c.ticker} <span class="days-badge">${badge}</span>
+    </span>`;
+  }).join('');
+}
+
+function scrollToCard(id) {
+  const el = document.getElementById('card-' + id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// 统计条
+function renderStats(data) {
+  const total = data.length;
+  const released = data.filter(c => c.status === 'released').length;
+  const pending = data.filter(c => {
+    const s = getStatus(c);
+    return s === 'pending' || s === 'upcoming' || s === 'today';
+  }).length;
+  document.getElementById('statsBar').innerHTML = `
+    <div class="stat-pill"><span class="stat-dot" style="background:#4f6ef7"></span>共 <strong>${total}</strong> 家公司</div>
+    <div class="stat-pill"><span class="stat-dot" style="background:#10b981"></span>已发布 <strong>${released}</strong> 家</div>
+    <div class="stat-pill"><span class="stat-dot" style="background:#f59e0b"></span>待发布 <strong>${pending}</strong> 家</div>
+  `;
+}
+
+// 渲染单张卡片
+function renderCard(company) {
+  const status = getStatus(company);
+  const countdown = getCountdownText(company);
+  const days = daysFromToday(company.releaseDate);
+  const isSoon = status === 'upcoming';
+  const isToday = status === 'today';
+
+  let cardClass = 'card';
+  if (isSoon) cardClass += ' soon';
+  if (isToday) cardClass += ' today-release';
+
+  let statusBadge = '';
+  if (status === 'released') statusBadge = '<span class="status-badge released">✅ 已发布</span>';
+  else if (status === 'today') statusBadge = '<span class="status-badge today">🎯 今天</span>';
+  else if (status === 'upcoming') statusBadge = '<span class="status-badge upcoming">⚡ 即将发布</span>';
+  else statusBadge = '<span class="status-badge pending">🕐 待发布</span>';
+
+  let bodyHTML = '';
+  if (status === 'released' && company.released) {
+    const r = company.released;
+    const revDisplay = getRevDisplay(company);
+    const gmDisplay = r.grossMargin !== null && r.grossMargin !== undefined ? `${r.grossMargin.toFixed(1)}%` : '—';
+    const epsDisplay = r.eps !== null && r.eps !== undefined ? `$${r.eps.toFixed(2)}` : '—';
+    const niDisplay = r.netIncome !== null && r.netIncome !== undefined
+      ? (company.currency === 'TWD' ? `$${(r.netIncome*0.031).toFixed(1)}亿` :
+         company.currency === 'EUR' ? `$${(r.netIncome*1.08).toFixed(1)}亿` :
+         `$${r.netIncome.toFixed(1)}亿`)
+      : '—';
+
+    bodyHTML = `
+      <div class="card-metrics">
+        <div class="metric-item">
+          <div class="metric-label">营收 (USD)</div>
+          <div class="metric-value">${revDisplay}</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-label">同比</div>
+          <div class="metric-value ${r.revYoY && r.revYoY.startsWith('+') ? 'pos' : (r.revYoY && r.revYoY.startsWith('-') ? 'neg' : '')}">${r.revYoY || '—'}</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-label">毛利率</div>
+          <div class="metric-value">${gmDisplay}</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-label">Non-GAAP EPS</div>
+          <div class="metric-value">${epsDisplay}</div>
+        </div>
+      </div>`;
+  } else {
+    bodyHTML = `
+      <div class="card-pending-info">
+        <div class="pending-date">📅 ${formatDate(company.releaseDate)}</div>
+        <div class="pending-countdown ${countdown.cls}">${countdown.text}</div>
+        <div class="pending-subtitle">${company.quarter} 财报</div>
+      </div>`;
+  }
+
+  return `
+    <div class="${cardClass}" id="card-${company.id}" onclick="openModal('${company.id}')">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-name">${company.nameCN}</div>
+          <div class="card-ticker">${company.ticker} · ${company.nameEN}</div>
+        </div>
+        <div class="card-badges">
+          ${statusBadge}
+          <span class="quarter-badge">${company.quarter}</span>
+        </div>
+      </div>
+      <span class="sector-tag">${company.sector}</span>
+      <div class="card-divider"></div>
+      ${bodyHTML}
+      <div class="card-track">${company.track}</div>
+    </div>`;
+}
+
+// 渲染卡片网格
+let currentFilter = 'all';
+let currentSector = 'all';
+let currentSearch = '';
+
+function renderGrid() {
+  let data = COMPANIES.filter(c => {
+    const status = getStatus(c);
+    // 状态筛选
+    if (currentFilter === 'released' && status !== 'released') return false;
+    if (currentFilter === 'upcoming' && status !== 'upcoming' && status !== 'today') return false;
+    if (currentFilter === 'pending' && status !== 'pending' && status !== 'today') return false;
+    // 赛道筛选
+    if (currentSector !== 'all' && c.sector !== currentSector) return false;
+    // 搜索筛选
+    if (currentSearch) {
+      const q = currentSearch.toLowerCase();
+      if (!c.nameCN.includes(currentSearch) &&
+          !c.nameEN.toLowerCase().includes(q) &&
+          !c.ticker.toLowerCase().includes(q)) return false;
+    }
+    return true;
+  });
+
+  renderStats(data);
+
+  const grid = document.getElementById('cardsGrid');
+  if (!data.length) {
+    grid.innerHTML = `<div class="empty-state"><h3>暂无匹配结果</h3><p>请尝试修改筛选条件</p></div>`;
+    return;
+  }
+  grid.innerHTML = data.map(renderCard).join('');
+}
+
+// ════════════════════════════════════════════════
+// 弹窗
+// ════════════════════════════════════════════════
+
+let activeChart = null;
+
+function openModal(id) {
+  const company = COMPANIES.find(c => c.id === id);
+  if (!company) return;
+
+  document.getElementById('modalTitle').textContent = `${company.nameCN} (${company.ticker})`;
+  document.getElementById('modalSubtitle').textContent = `${company.nameEN} · ${company.sector} · ${company.track}`;
+
+  const body = document.getElementById('modalBody');
+  const status = getStatus(company);
+
+  if (activeChart) { activeChart.destroy(); activeChart = null; }
+
+  let html = '';
+
+  if (status === 'released' && company.released) {
+    const r = company.released;
+
+    // 核心数据表格
+    html += `<div class="modal-section-title">核心财务数据 · ${company.quarter}</div>`;
+    html += `<table class="metrics-table">
+      <thead><tr><th>指标</th><th>本季</th><th>同比</th></tr></thead>
+      <tbody>
+        <tr><td>营收 (USD)</td><td>${getRevDisplayFull(company)}</td><td class="${r.revYoY && r.revYoY.startsWith('+') ? 'yoy-pos' : 'yoy-neg'}">${r.revYoY || '—'}</td></tr>
+        <tr><td>净利润 (USD)</td><td>${getNetIncomeDisplay(company)}</td><td class="${r.netIncomeYoY && r.netIncomeYoY.startsWith('+') ? 'yoy-pos' : 'yoy-neg'}">${r.netIncomeYoY || '—'}</td></tr>
+        <tr><td>毛利率</td><td>${r.grossMargin !== null && r.grossMargin !== undefined ? r.grossMargin.toFixed(1)+'%' : '—'}</td><td>—</td></tr>
+        <tr><td>Non-GAAP EPS</td><td>${r.eps !== null && r.eps !== undefined ? '$'+r.eps.toFixed(2) : '—'}</td><td>—</td></tr>
+        <tr><td>GAAP EPS</td><td>${r.epsGaap !== null && r.epsGaap !== undefined ? '$'+r.epsGaap.toFixed(2) : '—'}</td><td>—</td></tr>
+      </tbody>
+    </table>`;
+
+    // FX说明
+    if (r.fxNote || company.currency !== 'USD') {
+      const note = r.fxNote || (company.currency === 'TWD' ? 'TWD→USD @0.031（2026年5月参考汇率）' :
+                                 company.currency === 'EUR' ? 'EUR→USD @1.08（2026年5月参考汇率）' : '');
+      if (note) html += `<div class="fx-note">💱 汇率换算：${note}</div>`;
+    }
+
+    // 指引
+    if (company.guidance) {
+      html += `<div class="modal-section-title">下季度指引</div>
+        <div class="guidance-card">
+          <div class="guidance-title">📊 ${company.quarter.replace('Q','Q').split('').join('')} 下季度展望</div>
+          <div class="guidance-grid">
+            <div class="guidance-item"><div class="guidance-label">营收指引</div><div class="guidance-value">${company.guidance.rev || '—'}</div></div>
+            <div class="guidance-item"><div class="guidance-label">EPS 指引</div><div class="guidance-value">${company.guidance.eps || '—'}</div></div>
+          </div>
+          <div style="margin-top:8px;font-size:12px;color:#64748b">${company.guidance.note || ''}</div>
+        </div>`;
+    }
+
+    // 业务亮点
+    if (company.highlights && company.highlights.length) {
+      html += `<div class="modal-section-title">业务亮点</div>
+        <ul class="highlights-list">
+          ${company.highlights.map(h => `<li>${h}</li>`).join('')}
+        </ul>`;
+    }
+
+  } else {
+    // 未发布
+    const countdown = getCountdownText(company);
+    html += `
+      <div class="pending-modal-info">
+        <div class="pending-modal-date">📅 ${formatDate(company.releaseDate)}</div>
+        <div class="pending-modal-countdown">${countdown.text}</div>
+        <div class="pending-modal-note">${company.quarter} 财报尚未发布</div>
+      </div>`;
+
+    if (company.guidance) {
+      html += `<div class="modal-section-title" style="margin-top:16px">市场预期 / 公司前期指引</div>
+        <div class="guidance-card">
+          <div class="guidance-grid">
+            <div class="guidance-item"><div class="guidance-label">营收预期</div><div class="guidance-value">${company.guidance.rev || '—'}</div></div>
+            <div class="guidance-item"><div class="guidance-label">EPS 预期</div><div class="guidance-value">${company.guidance.eps || '—'}</div></div>
+          </div>
+          <div style="margin-top:8px;font-size:12px;color:#64748b">${company.guidance.note || ''}</div>
+        </div>`;
+    }
+
+    if (company.highlights && company.highlights.length) {
+      html += `<div class="modal-section-title">近期动态</div>
+        <ul class="highlights-list">
+          ${company.highlights.map(h => `<li>${h}</li>`).join('')}
+        </ul>`;
+    }
+  }
+
+  // 12季营收走势图
+  const validHistory = company.history.map((v, i) => ({ v, l: company.historyLabels[i] })).filter(x => x.v !== null);
+  if (validHistory.length >= 3) {
+    html += `<div class="modal-section-title">近期营收走势（亿 USD）</div>
+      <div class="chart-container"><canvas id="revenueChart"></canvas></div>`;
+  }
+
+  body.innerHTML = html;
+
+  // 渲染图表
+  if (validHistory.length >= 3) {
+    const ctx = document.getElementById('revenueChart').getContext('2d');
+    const labels = validHistory.map(x => x.l);
+    const vals = validHistory.map(x => {
+      let v = x.v;
+      if (company.currency === 'TWD' && !company.revIsUSD) v = +(v * 0.031).toFixed(2);
+      else if (company.currency === 'EUR' && !company.revIsUSD) v = +(v * 1.08).toFixed(2);
+      return v;
+    });
+
+    const maxVal = Math.max(...vals);
+    const colors = vals.map((v, i) => {
+      if (i === vals.length - 1) return 'rgba(79,110,247,0.9)';
+      return v === maxVal ? 'rgba(139,92,246,0.8)' : 'rgba(79,110,247,0.55)';
+    });
+
+    activeChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [{
+          data: vals,
+          backgroundColor: colors,
+          borderRadius: 5,
+          borderSkipped: false,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => `$${ctx.raw.toFixed(1)}亿 USD`,
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: false,
+            grid: { color: '#f1f5f9' },
+            ticks: {
+              callback: v => `$${v}亿`,
+              font: { size: 10 },
+            }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { font: { size: 10 } }
+          }
+        }
+      }
+    });
+  }
+
+  document.getElementById('modalOverlay').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('show');
+  if (activeChart) { activeChart.destroy(); activeChart = null; }
+}
+
+// ════════════════════════════════════════════════
+// 事件绑定
+// ════════════════════════════════════════════════
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+});
+
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    currentFilter = tab.dataset.filter;
+    renderGrid();
+  });
+});
+
+document.getElementById('sectorSelect').addEventListener('change', e => {
+  currentSector = e.target.value;
+  renderGrid();
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  currentSearch = e.target.value.trim();
+  renderGrid();
+});
+
+// 键盘关闭
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ════════════════════════════════════════════════
+// 初始化
+// ════════════════════════════════════════════════
+renderBanner();
+renderGrid();
+</script>
+</body>
+</html>
