@@ -1,0 +1,1866 @@
+{
+  "generatedAt": "2026-06-14T08:12:10.703Z",
+  "source": "yfinance+official",
+  "asOfDate": "2026-06-14",
+  "fxRates": {
+    "asOf": "2026-06-12 00:00 UTC",
+    "base": "USD",
+    "rates": {
+      "USD": 1,
+      "TWD": 0.031,
+      "KRW": 0.000658,
+      "JPY": 0.006242,
+      "EUR": 1.156698
+    },
+    "note": "汇率由 Frankfurter 最新中间价换算为 USD，用于跨市场口径统一展示；正式投研场景建议在披露日锁定当日汇率。",
+    "source": "Frankfurter",
+    "fetchedAt": "2026-06-14T08:12:01.964Z"
+  },
+  "companies": [
+    {
+      "id": "TSM",
+      "nameCn": "台积电",
+      "nameEn": "TSMC",
+      "ticker": "TSM",
+      "industry": "晶圆制造",
+      "track": "先进制程晶圆代工",
+      "reportDate": "2026-07-16",
+      "revenueHistory": [
+        17.2,
+        17.9,
+        18.5,
+        19.1,
+        20.6,
+        21.8,
+        23,
+        26.02,
+        28.95,
+        30.69,
+        32.43,
+        35.16
+      ],
+      "guidance": "3nm 与 2nm 需求强劲，AI 与 HPC 客户占比提升，资本开支继续聚焦先进制程与先进封装。",
+      "highlights": [
+        "AI 加速器和 HPC 订单推动先进制程产能利用率维持高位。",
+        "CoWoS 先进封装扩产持续支撑高端客户交付。",
+        "智能手机需求复苏不均，但对整体组合影响下降。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 35.16,
+        "netIncome": 17.75,
+        "grossMargin": 66.2,
+        "eps": 110.4
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "TSMC 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-16",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [
+          "yfinance: normalized from TWD to USD using FX baseline"
+        ],
+        "fetchedAt": "2026-06-14T08:12:01.966Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "TSMC",
+        "marketCap": 2198701890344.22,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31"
+        ],
+        "fetchedAt": "2026-06-14T08:12:01.966Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "UMC",
+      "nameCn": "联电",
+      "nameEn": "United Microelectronics",
+      "ticker": "UMC",
+      "industry": "晶圆制造",
+      "track": "成熟制程、特殊工艺代工",
+      "reportDate": "2026-07-29",
+      "revenueHistory": [
+        1.75,
+        1.71,
+        1.68,
+        1.64,
+        1.66,
+        1.69,
+        1.73,
+        1.79,
+        1.82,
+        1.83,
+        1.92,
+        1.89
+      ],
+      "guidance": "成熟制程价格竞争仍在，但特殊工艺与车用客户贡献有助于稳定产能利用率。",
+      "highlights": [
+        "Wi-Fi、显示驱动与 MCU 客户库存改善。",
+        "28nm 与特殊工艺平台订单回温。",
+        "车用与工业客户维持相对稳定拉货。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 1.89,
+        "netIncome": 0.5,
+        "grossMargin": 29.2,
+        "eps": 6.45
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "UMC 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-29",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [
+          "yfinance: normalized from TWD to USD using FX baseline"
+        ],
+        "fetchedAt": "2026-06-14T08:12:10.703Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "United Microelectronics",
+        "marketCap": 54275870815.74,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31",
+          "2024-09-30"
+        ],
+        "fetchedAt": "2026-06-14T08:12:10.703Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "ASX",
+      "nameCn": "日月光投控",
+      "nameEn": "ASE Group",
+      "ticker": "ASX",
+      "industry": "封装测试",
+      "track": "芯片封装、测试、先进封测",
+      "reportDate": "2026-07-30",
+      "revenueHistory": [
+        4.08,
+        4.14,
+        4.22,
+        4.31,
+        4.41,
+        4.52,
+        4.64,
+        4.59,
+        4.67,
+        5.23,
+        5.52,
+        5.38
+      ],
+      "guidance": "先进封测持续受 AI 芯片带动，传统消费电子相关封测需求逐步修复。",
+      "highlights": [
+        "先进封装产能扩张支撑高端订单导入。",
+        "测试业务受 HPC 客户带动改善。",
+        "消费电子链条恢复节奏仍温和。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 5.38,
+        "netIncome": 0.44,
+        "grossMargin": 20.1,
+        "eps": 6.16
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "ASE 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-30",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [
+          "yfinance: normalized from TWD to USD using FX baseline"
+        ],
+        "fetchedAt": "2026-06-14T08:12:10.703Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "ASE Group",
+        "marketCap": 83633211133.29,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31"
+        ],
+        "fetchedAt": "2026-06-14T08:12:10.703Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "NVDA",
+      "nameCn": "英伟达",
+      "nameEn": "NVIDIA",
+      "ticker": "NVDA",
+      "industry": "芯片设计",
+      "track": "AI GPU、数据中心、自动驾驶芯片",
+      "reportDate": "2026-08-27",
+      "revenueHistory": [
+        13.5,
+        18.1,
+        22.1,
+        26,
+        30.4,
+        35.1,
+        39.3,
+        44.06,
+        46.74,
+        57.01,
+        68.13,
+        81.61
+      ],
+      "guidance": "管理层预计下一季度数据中心需求继续强劲，Blackwell 平台放量将推动营收再创新高。",
+      "highlights": [
+        "超大规模云厂商继续加码 AI 训练与推理集群。",
+        "汽车与机器人生态扩张，为软件与边缘算力带来新增长点。",
+        "供应链瓶颈缓解后，高端 GPU 与网络产品交付节奏改善。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 81.61,
+        "netIncome": 58.32,
+        "grossMargin": 74.9,
+        "eps": 2.39
+      },
+      "fiscalQuarterLabel": "FY2027 Q1",
+      "fiscalQuarterDetail": "NVIDIA FY2027 Q1",
+      "lastReportedAt": "2026-04-30",
+      "nextReportDate": "2026-08-27",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:33:35.151Z"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "NVIDIA",
+        "marketCap": 4969907049133.3,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-04-30",
+          "2026-01-31",
+          "2025-10-31",
+          "2025-07-31",
+          "2025-04-30"
+        ],
+        "fetchedAt": "2026-06-14T07:33:35.151Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-04-30"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      }
+    },
+    {
+      "id": "AMD",
+      "nameCn": "超威半导体",
+      "nameEn": "Advanced Micro Devices",
+      "ticker": "AMD",
+      "industry": "芯片设计",
+      "track": "CPU、GPU、数据中心 AI 芯片",
+      "reportDate": "2026-08-05",
+      "revenueHistory": [
+        5.9,
+        6.1,
+        6.4,
+        6,
+        6.2,
+        6.5,
+        6.8,
+        7.44,
+        7.68,
+        9.25,
+        10.27,
+        10.25
+      ],
+      "guidance": "MI 系列 AI 加速卡出货提速，服务器 CPU 渗透率继续提升，管理层预计下季度营收环比增长。",
+      "highlights": [
+        "EPYC 在企业与云端客户持续替代竞争对手份额。",
+        "Instinct AI GPU 与 ROCm 生态逐步成熟，客户验证周期缩短。",
+        "客户端业务恢复，游戏业务仍受主机周期影响。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 10.25,
+        "netIncome": 1.38,
+        "grossMargin": 52.8,
+        "eps": 0.84
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "AMD 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-08-05",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:34:17.233Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Advanced Micro Devices",
+        "marketCap": 834166380836.11,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31",
+          "2024-09-30"
+        ],
+        "fetchedAt": "2026-06-14T07:34:17.233Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "AVGO",
+      "nameCn": "博通",
+      "nameEn": "Broadcom",
+      "ticker": "AVGO",
+      "industry": "芯片设计",
+      "track": "网络通信、服务器、企业级 ASIC",
+      "reportDate": "2026-09-04",
+      "revenueHistory": [
+        8.7,
+        8.9,
+        9.1,
+        9.5,
+        10.2,
+        10.6,
+        11,
+        15,
+        15.95,
+        18.02,
+        19.31,
+        22.19
+      ],
+      "guidance": "AI 交换芯片与定制 ASIC 需求延续高景气，软件业务订阅化贡献更稳定现金流。",
+      "highlights": [
+        "超大规模客户持续追加以太网交换与定制 ASIC 投片。",
+        "VMware 整合后，软件业务利润率修复符合预期。",
+        "无线业务季节性波动，但企业网络与 AI 基建形成对冲。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 22.19,
+        "netIncome": 9.31,
+        "grossMargin": 69.5,
+        "eps": 1.91
+      },
+      "fiscalQuarterLabel": "FY2026 Q2",
+      "fiscalQuarterDetail": "Broadcom FY2026 Q2",
+      "lastReportedAt": "2026-04-30",
+      "nextReportDate": "2026-09-04",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:34:17.233Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Broadcom",
+        "marketCap": 1817728701095.42,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-04-30",
+          "2026-01-31",
+          "2025-10-31",
+          "2025-07-31",
+          "2025-04-30",
+          "2025-01-31",
+          "2024-10-31"
+        ],
+        "fetchedAt": "2026-06-14T07:34:17.233Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-04-30"
+      }
+    },
+    {
+      "id": "QCOM",
+      "nameCn": "高通",
+      "nameEn": "Qualcomm",
+      "ticker": "QCOM",
+      "industry": "芯片设计",
+      "track": "手机 SoC、基带、射频、汽车半导体",
+      "reportDate": "2026-07-30",
+      "revenueHistory": [
+        9.5,
+        9.1,
+        8.7,
+        8.9,
+        9.3,
+        9.8,
+        10.1,
+        10.98,
+        10.37,
+        11.27,
+        12.25,
+        10.6
+      ],
+      "guidance": "汽车与 IoT 业务维持双位数增长，手机复苏与高端机型组合改善利润率。",
+      "highlights": [
+        "车载数字座舱与 ADAS 订单储备继续攀升。",
+        "安卓高端机回暖带动旗舰 SoC 出货。",
+        "授权业务稳定，为现金流提供底盘。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 10.6,
+        "netIncome": 7.37,
+        "grossMargin": 53.8,
+        "eps": 6.88
+      },
+      "fiscalQuarterLabel": "FY2026 Q2",
+      "fiscalQuarterDetail": "Qualcomm FY2026 Q2",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-30",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:34:17.233Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Qualcomm",
+        "marketCap": 223152881286.62,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31",
+          "2024-09-30"
+        ],
+        "fetchedAt": "2026-06-14T07:34:17.233Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "ARM",
+      "nameCn": "安谋控股",
+      "nameEn": "Arm Holdings",
+      "ticker": "ARM",
+      "industry": "芯片设计",
+      "track": "CPU IP 架构授权",
+      "reportDate": "2026-07-30",
+      "revenueHistory": [
+        0.75,
+        0.78,
+        0.81,
+        0.86,
+        0.9,
+        0.95,
+        1.01,
+        1.24,
+        1.05,
+        1.14,
+        1.24,
+        1.49
+      ],
+      "guidance": "AI PC 与数据中心 CPU 授权渗透率提升，授权费与版税收入结构改善。",
+      "highlights": [
+        "数据中心 CPU 架构采用率提升，长期版税空间扩大。",
+        "终端侧 AI 设备推动新一轮高端核心 IP 升级。",
+        "生态伙伴扩展增强 ARM 平台黏性。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 1.49,
+        "netIncome": 0.31,
+        "grossMargin": 97.9,
+        "eps": 0.29
+      },
+      "fiscalQuarterLabel": "FY2026 Q4",
+      "fiscalQuarterDetail": "Arm FY2026 Q4",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-30",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:34:17.233Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Arm Holdings",
+        "marketCap": 405202332977.22,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31"
+        ],
+        "fetchedAt": "2026-06-14T07:34:17.233Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "MRVL",
+      "nameCn": "迈威尔科技",
+      "nameEn": "Marvell Technology",
+      "ticker": "MRVL",
+      "industry": "芯片设计",
+      "track": "数据中心、网络处理器、存储芯片",
+      "reportDate": "2026-08-28",
+      "revenueHistory": [
+        1.32,
+        1.28,
+        1.22,
+        1.25,
+        1.29,
+        1.33,
+        1.37,
+        1.9,
+        2.01,
+        2.07,
+        2.22,
+        2.42
+      ],
+      "guidance": "云数据中心互连与定制加速芯片需求继续推动收入恢复，存储业务处于筑底后回升阶段。",
+      "highlights": [
+        "高速光互连与 DSP 产品受益于 AI 集群升级。",
+        "企业网络需求温和复苏，运营商业务仍偏谨慎。",
+        "定制硅项目进入量产斜坡期。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 2.42,
+        "netIncome": 0.03,
+        "grossMargin": 52.1,
+        "eps": 0.04
+      },
+      "fiscalQuarterLabel": "FY2027 Q1",
+      "fiscalQuarterDetail": "Marvell FY2027 Q1",
+      "lastReportedAt": "2026-04-30",
+      "nextReportDate": "2026-08-28",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:34:17.233Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Marvell Technology",
+        "marketCap": 244892233176,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-04-30",
+          "2026-01-31",
+          "2025-10-31",
+          "2025-07-31",
+          "2025-04-30",
+          "2025-01-31"
+        ],
+        "fetchedAt": "2026-06-14T07:34:17.233Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-04-30"
+      }
+    },
+    {
+      "id": "MPWR",
+      "nameCn": "芯源系统（芯科）",
+      "nameEn": "Monolithic Power Systems",
+      "ticker": "MPWR",
+      "industry": "芯片设计",
+      "track": "电源管理芯片、工业 / 汽车",
+      "reportDate": "2026-07-31",
+      "revenueHistory": [
+        0.47,
+        0.49,
+        0.5,
+        0.52,
+        0.55,
+        0.57,
+        0.6,
+        0.64,
+        0.66,
+        0.74,
+        0.75,
+        0.8
+      ],
+      "guidance": "AI 服务器供电、高端工业与汽车应用推动 ASP 和毛利率同步改善。",
+      "highlights": [
+        "高功率密度电源解决方案切入更多 AI 服务器平台。",
+        "汽车与工业客户库存回归健康区间。",
+        "新品平台提升长尾客户渗透率。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 0.8,
+        "netIncome": 0.19,
+        "grossMargin": 55.3,
+        "eps": 3.92
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "MPS 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-31",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:34:17.233Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Monolithic Power Systems",
+        "marketCap": 77492572785.66,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31"
+        ],
+        "fetchedAt": "2026-06-14T07:34:17.233Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "INTC",
+      "nameCn": "英特尔",
+      "nameEn": "Intel",
+      "ticker": "INTC",
+      "industry": "IDM 一体化",
+      "track": "CPU、数据中心、FPGA、晶圆代工",
+      "reportDate": "2026-07-24",
+      "revenueHistory": [
+        12.7,
+        12.3,
+        12.5,
+        12.8,
+        13,
+        13.4,
+        13.9,
+        12.67,
+        12.86,
+        13.65,
+        13.67,
+        13.58
+      ],
+      "guidance": "管理层预计 PC 周期回暖与代工客户导入同步推进，但先进制程投资仍压制短期利润率。",
+      "highlights": [
+        "客户端 CPU 库存恢复后出货改善。",
+        "Foundry 业务订单能见度提升，但良率与成本仍是关键变量。",
+        "AI PC 带动高端处理器 ASP 改善。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 13.58,
+        "netIncome": -3.73,
+        "grossMargin": 39.4,
+        "eps": -0.73
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "Intel 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-24",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:34:17.233Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Intel",
+        "marketCap": 626088818466.19,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31"
+        ],
+        "fetchedAt": "2026-06-14T07:34:17.233Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "TXN",
+      "nameCn": "德州仪器",
+      "nameEn": "Texas Instruments",
+      "ticker": "TXN",
+      "industry": "IDM 一体化",
+      "track": "模拟芯片、电源管理、工业 / 汽车",
+      "reportDate": "2026-07-23",
+      "revenueHistory": [
+        4.27,
+        4.15,
+        4.03,
+        3.97,
+        4.05,
+        4.12,
+        4.21,
+        4.07,
+        4.45,
+        4.74,
+        4.42,
+        4.83
+      ],
+      "guidance": "工业需求触底趋稳，汽车客户补库节奏温和恢复，自有产能利用率将逐步回升。",
+      "highlights": [
+        "工业自动化订单降幅收窄。",
+        "汽车电源与控制类产品表现更稳健。",
+        "产能前置投入保障中长期交付能力。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 4.83,
+        "netIncome": 1.54,
+        "grossMargin": 58,
+        "eps": 1.68
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "Texas Instruments 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-23",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:34:31.174Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Texas Instruments",
+        "marketCap": 274047136782.11,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31",
+          "2024-09-30"
+        ],
+        "fetchedAt": "2026-06-14T07:34:31.174Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "ADI",
+      "nameCn": "亚德诺",
+      "nameEn": "Analog Devices",
+      "ticker": "ADI",
+      "industry": "IDM 一体化",
+      "track": "高性能模拟、传感器、汽车 / 工业",
+      "reportDate": "2026-08-19",
+      "revenueHistory": [
+        2.61,
+        2.55,
+        2.48,
+        2.45,
+        2.51,
+        2.58,
+        2.63,
+        2.64,
+        2.88,
+        3.08,
+        3.16,
+        3.62
+      ],
+      "guidance": "工业和通信需求恢复，管理层预计下季度毛利率维持高位。",
+      "highlights": [
+        "工业终端库存调整接近尾声。",
+        "汽车电气化与能源管理应用带来结构性增长。",
+        "高性能模拟产品线维持较强定价能力。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 3.62,
+        "netIncome": 1.18,
+        "grossMargin": 67.3,
+        "eps": 2.4
+      },
+      "fiscalQuarterLabel": "FY2026 Q2",
+      "fiscalQuarterDetail": "Analog Devices FY2026 Q2",
+      "lastReportedAt": "2026-04-30",
+      "nextReportDate": "2026-08-19",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:35:05.557Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Analog Devices",
+        "marketCap": 203500098603.72,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-04-30",
+          "2026-01-31",
+          "2025-10-31",
+          "2025-07-31",
+          "2025-04-30",
+          "2025-01-31",
+          "2024-10-31"
+        ],
+        "fetchedAt": "2026-06-14T07:35:05.557Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-04-30"
+      }
+    },
+    {
+      "id": "ON",
+      "nameCn": "安森美半导体",
+      "nameEn": "On Semiconductor",
+      "ticker": "ON",
+      "industry": "IDM 一体化",
+      "track": "功率器件、碳化硅、汽车电子",
+      "reportDate": "2026-08-03",
+      "revenueHistory": [
+        1.74,
+        1.71,
+        1.65,
+        1.61,
+        1.66,
+        1.7,
+        1.76,
+        1.45,
+        1.47,
+        1.55,
+        1.53,
+        1.51
+      ],
+      "guidance": "SiC 业务在新能源车与储能应用持续放量，但短期仍受终端需求波动影响。",
+      "highlights": [
+        "车规功率器件订单恢复节奏温和。",
+        "碳化硅产能建设继续推进。",
+        "工业与能源基础设施需求改善。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 1.51,
+        "netIncome": -0.03,
+        "grossMargin": 38.5,
+        "eps": -0.08
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "onsemi 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-08-03",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:35:05.557Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "On Semiconductor",
+        "marketCap": 45408325032.85,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31",
+          "2024-09-30"
+        ],
+        "fetchedAt": "2026-06-14T07:35:05.557Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "MCHP",
+      "nameCn": "微芯科技",
+      "nameEn": "Microchip Technology",
+      "ticker": "MCHP",
+      "industry": "IDM 一体化",
+      "track": "MCU、模拟芯片、嵌入式、工业",
+      "reportDate": "2026-08-07",
+      "revenueHistory": [
+        1.58,
+        1.55,
+        1.47,
+        1.41,
+        1.39,
+        1.42,
+        1.45,
+        0.97,
+        1.08,
+        1.14,
+        1.19,
+        1.31
+      ],
+      "guidance": "工业与嵌入式客户库存回落后，管理层预计订单能见度逐步改善。",
+      "highlights": [
+        "MCU 平台在工业控制和汽车外围系统保持稳健。",
+        "客户去库存进入尾声，book-to-bill 有改善迹象。",
+        "毛利率因产能优化而边际回升。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 1.31,
+        "netIncome": 0.14,
+        "grossMargin": 61,
+        "eps": 0.21
+      },
+      "fiscalQuarterLabel": "FY2026 Q4",
+      "fiscalQuarterDetail": "Microchip FY2026 Q4",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-08-07",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:35:05.557Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Microchip Technology",
+        "marketCap": 51627629564.43,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31"
+        ],
+        "fetchedAt": "2026-06-14T07:35:05.557Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "NXPI",
+      "nameCn": "恩智浦",
+      "nameEn": "NXP Semiconductors",
+      "ticker": "NXPI",
+      "industry": "IDM 一体化",
+      "track": "汽车半导体、车规芯片、安全控制",
+      "reportDate": "2026-07-28",
+      "revenueHistory": [
+        3.02,
+        2.98,
+        2.93,
+        2.95,
+        3.01,
+        3.07,
+        3.14,
+        2.83,
+        2.93,
+        3.17,
+        3.33,
+        3.18
+      ],
+      "guidance": "汽车 MCUs 与雷达平台维持韧性，工业与物联网需求逐步回暖。",
+      "highlights": [
+        "汽车安全与连接类芯片订单稳健。",
+        "工业 IoT 去库存趋于结束。",
+        "边缘安全与身份识别业务保持较高利润率。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 3.18,
+        "netIncome": 1.12,
+        "grossMargin": 56.2,
+        "eps": 4.43
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "NXP 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-28",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:35:05.557Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "NXP Semiconductors",
+        "marketCap": 76968329445.63,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31",
+          "2024-09-30"
+        ],
+        "fetchedAt": "2026-06-14T07:35:05.557Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "STM",
+      "nameCn": "意法半导体",
+      "nameEn": "STMicroelectronics",
+      "ticker": "STM",
+      "industry": "IDM 一体化",
+      "track": "汽车电子、MEMS、功率器件",
+      "reportDate": "2026-07-23",
+      "revenueHistory": [
+        4.05,
+        3.94,
+        3.82,
+        3.76,
+        3.81,
+        3.89,
+        3.95,
+        2.52,
+        2.77,
+        3.19,
+        3.33,
+        3.1
+      ],
+      "guidance": "工业与汽车需求恢复节奏仍不均衡，但 SiC 与高端功率器件将提供结构性支撑。",
+      "highlights": [
+        "欧洲汽车客户调整库存后逐步回补。",
+        "MEMS 与工业传感器需求改善。",
+        "功率器件产品组合优化推动毛利率修复。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 3.1,
+        "netIncome": 0.04,
+        "grossMargin": 33.8,
+        "eps": 0.04
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "STMicroelectronics 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-23",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:35:05.557Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "STMicroelectronics",
+        "marketCap": 68703788961.38,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31"
+        ],
+        "fetchedAt": "2026-06-14T07:35:05.557Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "GFS",
+      "nameCn": "格罗方德",
+      "nameEn": "GlobalFoundries",
+      "ticker": "GFS",
+      "industry": "晶圆制造",
+      "track": "成熟制程代工、汽车 / 物联网",
+      "reportDate": "2026-08-04",
+      "revenueHistory": [
+        1.82,
+        1.79,
+        1.71,
+        1.68,
+        1.7,
+        1.73,
+        1.75,
+        1.58,
+        1.69,
+        1.69,
+        1.83,
+        1.63
+      ],
+      "guidance": "汽车与国防客户订单稳定，IoT 需求逐步恢复，成熟制程价格表现相对稳健。",
+      "highlights": [
+        "车用与工业产能预订带来更高订单确定性。",
+        "射频与特色工艺平台维持差异化优势。",
+        "客户长期协议提高产能利用率可见度。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 1.63,
+        "netIncome": 0.1,
+        "grossMargin": 27.6,
+        "eps": 0.18
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "GlobalFoundries 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-08-04",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:35:05.557Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "GlobalFoundries",
+        "marketCap": 44630128380.93,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31",
+          "2024-09-30"
+        ],
+        "fetchedAt": "2026-06-14T07:35:05.557Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "ASML",
+      "nameCn": "阿斯麦",
+      "nameEn": "ASML Holding",
+      "ticker": "ASML",
+      "industry": "半导体设备",
+      "track": "EUV/DUV 光刻机",
+      "reportDate": "2026-07-15",
+      "revenueHistory": [
+        6.2,
+        6.4,
+        6.7,
+        6.9,
+        7.1,
+        7.4,
+        7.7,
+        7.74,
+        7.69,
+        7.52,
+        9.72,
+        8.77
+      ],
+      "guidance": "先进制程资本开支继续支持 EUV 系统需求，装机与服务业务提供更高收入可见性。",
+      "highlights": [
+        "高数值孔径 EUV 路线图推进顺利。",
+        "客户交付节奏受大客户扩产时点影响。",
+        "服务与升级业务贡献提升增强盈利质量。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 8.77,
+        "netIncome": 2.76,
+        "grossMargin": 53,
+        "eps": 7.15
+      },
+      "fiscalQuarterLabel": "2026 Q1",
+      "fiscalQuarterDetail": "ASML 2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-15",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:36:00.695Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "ASML Holding",
+        "marketCap": 718245108429.97,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31"
+        ],
+        "fetchedAt": "2026-06-14T07:36:00.695Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "AMAT",
+      "nameCn": "应用材料",
+      "nameEn": "Applied Materials",
+      "ticker": "AMAT",
+      "industry": "半导体设备",
+      "track": "沉积、刻蚀、工艺设备",
+      "reportDate": "2026-08-14",
+      "revenueHistory": [
+        6.31,
+        6.4,
+        6.48,
+        6.55,
+        6.67,
+        6.79,
+        6.88,
+        7.1,
+        7.3,
+        6.8,
+        7.01,
+        7.91
+      ],
+      "guidance": "逻辑与存储客户资本开支回暖，先进封装和材料工程设备保持强势。",
+      "highlights": [
+        "先进封装设备订单受益于 AI 服务器升级。",
+        "中国市场需求仍有韧性。",
+        "服务业务与零部件收入稳步增长。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 7.91,
+        "netIncome": 2.81,
+        "grossMargin": 49.9,
+        "eps": 3.51
+      },
+      "fiscalQuarterLabel": "FY2026 Q2",
+      "fiscalQuarterDetail": "Applied Materials FY2026 Q2",
+      "lastReportedAt": "2026-04-30",
+      "nextReportDate": "2026-08-14",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:36:00.695Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Applied Materials",
+        "marketCap": 450373486667.5,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-04-30",
+          "2026-01-31",
+          "2025-10-31",
+          "2025-07-31",
+          "2025-04-30",
+          "2025-01-31"
+        ],
+        "fetchedAt": "2026-06-14T07:36:00.695Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-04-30"
+      }
+    },
+    {
+      "id": "LRCX",
+      "nameCn": "拉姆研究",
+      "nameEn": "Lam Research",
+      "ticker": "LRCX",
+      "industry": "半导体设备",
+      "track": "刻蚀、薄膜沉积设备",
+      "reportDate": "2026-07-30",
+      "revenueHistory": [
+        3.52,
+        3.47,
+        3.41,
+        3.45,
+        3.56,
+        3.63,
+        3.71,
+        4.72,
+        5.17,
+        5.32,
+        5.34,
+        5.84
+      ],
+      "guidance": "存储设备支出回升与先进逻辑节点迁移将继续驱动刻蚀和沉积需求。",
+      "highlights": [
+        "NAND 与 DRAM 客户资本开支显著改善。",
+        "先进节点对高深宽比刻蚀需求提升。",
+        "毛利率受产品组合优化支撑。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 5.84,
+        "netIncome": 1.83,
+        "grossMargin": 49.8,
+        "eps": 1.45
+      },
+      "fiscalQuarterLabel": "FY2026 Q3",
+      "fiscalQuarterDetail": "Lam Research FY2026 Q3",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-30",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:36:00.695Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Lam Research",
+        "marketCap": 458710207536.93,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31",
+          "2024-09-30"
+        ],
+        "fetchedAt": "2026-06-14T07:36:00.695Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "KLAC",
+      "nameCn": "科磊",
+      "nameEn": "KLA Corporation",
+      "ticker": "KLAC",
+      "industry": "半导体设备",
+      "track": "量检测、缺陷检测设备",
+      "reportDate": "2026-07-31",
+      "revenueHistory": [
+        2.36,
+        2.42,
+        2.48,
+        2.55,
+        2.61,
+        2.68,
+        2.74,
+        3.06,
+        3.17,
+        3.21,
+        3.3,
+        3.42
+      ],
+      "guidance": "先进制程复杂度持续提升，量检测设备优先级高于一般晶圆厂扩产周期。",
+      "highlights": [
+        "逻辑和存储客户都在增加过程控制投入。",
+        "服务和软件业务保持高附加值增长。",
+        "先进封装检测平台机会扩大。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 3.42,
+        "netIncome": 1.2,
+        "grossMargin": 61.1,
+        "eps": 9.12
+      },
+      "fiscalQuarterLabel": "FY2026 Q3",
+      "fiscalQuarterDetail": "KLA FY2026 Q3",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-31",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:36:00.696Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "KLA Corporation",
+        "marketCap": 332499283183.24,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31",
+          "2024-12-31"
+        ],
+        "fetchedAt": "2026-06-14T07:36:00.696Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    },
+    {
+      "id": "MU",
+      "nameCn": "美光科技",
+      "nameEn": "Micron Technology",
+      "ticker": "MU",
+      "industry": "存储芯片",
+      "track": "DRAM、NAND、HBM 存储",
+      "reportDate": "2026-06-25",
+      "revenueHistory": [
+        4.1,
+        4.6,
+        5.2,
+        5.7,
+        6.1,
+        6.6,
+        7,
+        8.05,
+        9.3,
+        11.31,
+        13.64,
+        23.86
+      ],
+      "guidance": "HBM 与高端 DRAM 继续受 AI 服务器需求拉动，价格与出货量均有上行动能。",
+      "highlights": [
+        "HBM 供不应求，长期订单可见度高。",
+        "NAND 市场供需改善支撑价格恢复。",
+        "资本开支聚焦高附加值产品节点。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 23.86,
+        "netIncome": 13.79,
+        "grossMargin": 74.4,
+        "eps": 12.07
+      },
+      "fiscalQuarterLabel": "FY2026 Q3",
+      "fiscalQuarterDetail": "Micron FY2026 Q3",
+      "lastReportedAt": "2026-02-28",
+      "nextReportDate": "2026-06-25",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:36:00.696Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Micron Technology",
+        "marketCap": 1106995005282.57,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-02-28",
+          "2025-11-30",
+          "2025-08-31",
+          "2025-05-31",
+          "2025-02-28"
+        ],
+        "fetchedAt": "2026-06-14T07:36:00.696Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-02-28"
+      }
+    },
+    {
+      "id": "SNPS",
+      "nameCn": "新思科技",
+      "nameEn": "Synopsys",
+      "ticker": "SNPS",
+      "industry": "EDA/IP",
+      "track": "EDA 设计软件、IP 核",
+      "reportDate": "2026-05-28",
+      "revenueHistory": [
+        1.36,
+        1.4,
+        1.43,
+        1.47,
+        1.5,
+        1.55,
+        1.59,
+        1.6,
+        1.74,
+        2.25,
+        2.41,
+        2.28
+      ],
+      "guidance": "AI 芯片设计项目增加，验证与软件完整性工具需求同步扩张。",
+      "highlights": [
+        "先进节点设计复杂度推动 EDA 预算保持韧性。",
+        "IP 授权与软件订阅模式带来高可预测性收入。",
+        "AI 驱动设计自动化成为新增长点。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 2.28,
+        "netIncome": 0.02,
+        "grossMargin": 72.3,
+        "eps": 0.09
+      },
+      "fiscalQuarterLabel": "FY2026 Q2",
+      "fiscalQuarterDetail": "Synopsys FY2026 Q2",
+      "lastReportedAt": "2026-04-30",
+      "nextReportDate": "2026-05-28",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:36:00.696Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Synopsys",
+        "marketCap": 86910553629.12,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-04-30",
+          "2026-01-31",
+          "2025-10-31",
+          "2025-07-31",
+          "2025-04-30",
+          "2025-01-31",
+          "2024-10-31"
+        ],
+        "fetchedAt": "2026-06-14T07:36:00.696Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-04-30"
+      }
+    },
+    {
+      "id": "CDNS",
+      "nameCn": "楷登电子",
+      "nameEn": "Cadence",
+      "ticker": "CDNS",
+      "industry": "EDA/IP",
+      "track": "EDA 仿真、验证工具",
+      "reportDate": "2026-07-28",
+      "revenueHistory": [
+        1.02,
+        1.06,
+        1.09,
+        1.13,
+        1.17,
+        1.2,
+        1.24,
+        1.24,
+        1.28,
+        1.34,
+        1.44,
+        1.47
+      ],
+      "guidance": "系统级仿真、验证与 AI 驱动设计平台继续扩展，续约率保持高位。",
+      "highlights": [
+        "数字全流程与仿真平台需求增长。",
+        "汽车与 AI 芯片客户保持高研发投入。",
+        "软件订阅收入占比提升，现金流更稳定。"
+      ],
+      "currency": "USD",
+      "metrics": {
+        "revenue": 1.47,
+        "netIncome": 0.34,
+        "grossMargin": 85.4,
+        "eps": 1.23
+      },
+      "fiscalQuarterLabel": "FY2026 Q1",
+      "fiscalQuarterDetail": "Cadence FY2026 Q1",
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-28",
+      "refreshMeta": {
+        "provider": "yfinance",
+        "primarySource": "yfinance",
+        "status": "full",
+        "endpoints": {
+          "official": false,
+          "yfinance": true
+        },
+        "notes": [],
+        "fetchedAt": "2026-06-14T07:36:00.696Z"
+      },
+      "overrideMeta": {
+        "used": true,
+        "source": "company-overrides.json"
+      },
+      "providerMeta": {
+        "primarySource": "yfinance",
+        "companyName": "Cadence",
+        "marketCap": 106178125003.17,
+        "currency": "USD",
+        "yfinanceIncomeColumns": [
+          "2026-03-31",
+          "2025-12-31",
+          "2025-09-30",
+          "2025-06-30",
+          "2025-03-31"
+        ],
+        "fetchedAt": "2026-06-14T07:36:00.696Z",
+        "sector": null,
+        "period": null,
+        "latestStatementDate": "2026-03-31"
+      }
+    }
+  ],
+  "metadata": {
+    "companyCount": 25,
+    "narrativeSource": "company-overrides.json",
+    "numericSource": "yfinance+official",
+    "refreshStats": {
+      "fullSuccess": 3,
+      "partialSuccess": 0,
+      "fallback": 0
+    },
+    "refreshMode": "targeted"
+  }
+}

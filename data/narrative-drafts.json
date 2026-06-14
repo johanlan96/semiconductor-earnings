@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-05-24T15:20:01.527Z",
+  "model": "fallback-rule-based",
+  "drafts": {
+    "NVDA": {
+      "companyName": "英伟达",
+      "model": "fallback-rule-based",
+      "sourceType": "manual-note",
+      "updatedAt": "2026-05-24T15:20:01.526Z",
+      "status": "pending_review",
+      "reviewerNotes": "",
+      "existingOverride": {
+        "guidance": "管理层预计下一季度数据中心需求继续强劲，Blackwell 平台放量将推动营收再创新高。",
+        "highlights": [
+          "超大规模云厂商继续加码 AI 训练与推理集群。",
+          "汽车与机器人生态扩张，为软件与边缘算力带来新增长点。",
+          "供应链瓶颈缓解后，高端 GPU 与网络产品交付节奏改善。"
+        ]
+      },
+      "candidate": {
+        "guidance": "数据中心需求维持强劲，下季度出货有望继续爬坡，AI 基础设施投入仍是主要驱动。",
+        "highlights": [
+          "超大规模云厂商继续投入 AI 基础设施。",
+          "Blackwell 平台相关出货进度值得重点跟踪。",
+          "当前为无模型兜底草稿，建议发布前再人工润色一次。"
+        ],
+        "confidence": "low",
+        "notes": "未配置 OPENAI_API_KEY，当前为关键词规则兜底草稿，适合先做编辑起点。"
+      },
+      "sourcePreview": "Management said data center demand remains strong and Blackwell shipments are expected to ramp next quarter. The company highlighted continued hyperscaler investment in AI infrastructure, improving networking attach rates, and better supply availability across high-end GPU products."
+    }
+  }
+}

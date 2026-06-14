@@ -1,0 +1,102 @@
+{
+  "NVDA": {
+    "fiscalQuarterLabel": "FY2027 Q1",
+    "fiscalQuarterDetail": "NVIDIA FY2027 Q1"
+  },
+  "AMD": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "AMD 2026 Q1"
+  },
+  "AVGO": {
+    "fiscalQuarterLabel": "FY2026 Q2",
+    "fiscalQuarterDetail": "Broadcom FY2026 Q2"
+  },
+  "QCOM": {
+    "fiscalQuarterLabel": "FY2026 Q2",
+    "fiscalQuarterDetail": "Qualcomm FY2026 Q2"
+  },
+  "ARM": {
+    "fiscalQuarterLabel": "FY2026 Q4",
+    "fiscalQuarterDetail": "Arm FY2026 Q4"
+  },
+  "MRVL": {
+    "fiscalQuarterLabel": "FY2027 Q1",
+    "fiscalQuarterDetail": "Marvell FY2027 Q1"
+  },
+  "MPWR": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "MPS 2026 Q1"
+  },
+  "INTC": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "Intel 2026 Q1"
+  },
+  "TXN": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "Texas Instruments 2026 Q1"
+  },
+  "ADI": {
+    "fiscalQuarterLabel": "FY2026 Q2",
+    "fiscalQuarterDetail": "Analog Devices FY2026 Q2"
+  },
+  "ON": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "onsemi 2026 Q1"
+  },
+  "MCHP": {
+    "fiscalQuarterLabel": "FY2026 Q4",
+    "fiscalQuarterDetail": "Microchip FY2026 Q4"
+  },
+  "NXPI": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "NXP 2026 Q1"
+  },
+  "STM": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "STMicroelectronics 2026 Q1"
+  },
+  "TSM": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "TSMC 2026 Q1"
+  },
+  "GFS": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "GlobalFoundries 2026 Q1"
+  },
+  "UMC": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "UMC 2026 Q1"
+  },
+  "ASML": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "ASML 2026 Q1"
+  },
+  "AMAT": {
+    "fiscalQuarterLabel": "FY2026 Q2",
+    "fiscalQuarterDetail": "Applied Materials FY2026 Q2"
+  },
+  "LRCX": {
+    "fiscalQuarterLabel": "FY2026 Q3",
+    "fiscalQuarterDetail": "Lam Research FY2026 Q3"
+  },
+  "KLAC": {
+    "fiscalQuarterLabel": "FY2026 Q3",
+    "fiscalQuarterDetail": "KLA FY2026 Q3"
+  },
+  "MU": {
+    "fiscalQuarterLabel": "FY2026 Q3",
+    "fiscalQuarterDetail": "Micron FY2026 Q3"
+  },
+  "SNPS": {
+    "fiscalQuarterLabel": "FY2026 Q2",
+    "fiscalQuarterDetail": "Synopsys FY2026 Q2"
+  },
+  "CDNS": {
+    "fiscalQuarterLabel": "FY2026 Q1",
+    "fiscalQuarterDetail": "Cadence FY2026 Q1"
+  },
+  "ASX": {
+    "fiscalQuarterLabel": "2026 Q1",
+    "fiscalQuarterDetail": "ASE 2026 Q1"
+  }
+}

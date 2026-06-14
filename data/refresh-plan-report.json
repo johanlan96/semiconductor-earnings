@@ -1,0 +1,306 @@
+{
+  "generatedAt": "2026-06-14T02:53:42.803Z",
+  "runs": [
+    {
+      "name": "full-yfinance-primary",
+      "command": "node scripts/update-data.mjs",
+      "startedAt": "2026-06-14T02:51:40.325Z",
+      "endedAt": "2026-06-14T02:53:42.802Z",
+      "exitCode": 0,
+      "stdout": "Generated data/earnings-dashboard.json and data/earnings-dashboard.js using yfinance+fmp-fallback.\nWrote data/last-refresh-report.json.\nRefresh stats: {\"fullSuccess\":25,\"partialSuccess\":0,\"fallback\":0}",
+      "stderr": "",
+      "refreshReport": {
+        "generatedAt": "2026-06-14T02:53:42.790Z",
+        "asOfDate": "2026-06-14",
+        "source": "yfinance+fmp-fallback",
+        "mode": "full",
+        "tickers": null,
+        "stats": {
+          "fullSuccess": 25,
+          "partialSuccess": 0,
+          "fallback": 0
+        },
+        "updatedTickers": [
+          "NVDA",
+          "AMD",
+          "AVGO",
+          "QCOM",
+          "ARM",
+          "MRVL",
+          "MPWR",
+          "INTC",
+          "TXN",
+          "ADI",
+          "ON",
+          "MCHP",
+          "NXPI",
+          "STM",
+          "TSM",
+          "GFS",
+          "UMC",
+          "ASML",
+          "AMAT",
+          "LRCX",
+          "KLAC",
+          "MU",
+          "SNPS",
+          "CDNS",
+          "ASX"
+        ],
+        "fallbackTickers": [],
+        "companies": [
+          {
+            "ticker": "NVDA",
+            "nameCn": "英伟达",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-04-30",
+            "nextReportDate": "2026-08-27",
+            "notes": []
+          },
+          {
+            "ticker": "AMD",
+            "nameCn": "超威半导体",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-08-05",
+            "notes": []
+          },
+          {
+            "ticker": "AVGO",
+            "nameCn": "博通",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-04-30",
+            "nextReportDate": "2026-09-04",
+            "notes": []
+          },
+          {
+            "ticker": "QCOM",
+            "nameCn": "高通",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-30",
+            "notes": []
+          },
+          {
+            "ticker": "ARM",
+            "nameCn": "安谋控股",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-30",
+            "notes": []
+          },
+          {
+            "ticker": "MRVL",
+            "nameCn": "迈威尔科技",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-04-30",
+            "nextReportDate": "2026-08-28",
+            "notes": []
+          },
+          {
+            "ticker": "MPWR",
+            "nameCn": "芯源系统（芯科）",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-31",
+            "notes": []
+          },
+          {
+            "ticker": "INTC",
+            "nameCn": "英特尔",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-24",
+            "notes": []
+          },
+          {
+            "ticker": "TXN",
+            "nameCn": "德州仪器",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-23",
+            "notes": []
+          },
+          {
+            "ticker": "ADI",
+            "nameCn": "亚德诺",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-04-30",
+            "nextReportDate": "2026-08-19",
+            "notes": []
+          },
+          {
+            "ticker": "ON",
+            "nameCn": "安森美半导体",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-08-03",
+            "notes": []
+          },
+          {
+            "ticker": "MCHP",
+            "nameCn": "微芯科技",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-08-07",
+            "notes": []
+          },
+          {
+            "ticker": "NXPI",
+            "nameCn": "恩智浦",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-28",
+            "notes": []
+          },
+          {
+            "ticker": "STM",
+            "nameCn": "意法半导体",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-23",
+            "notes": []
+          },
+          {
+            "ticker": "TSM",
+            "nameCn": "台积电",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-16",
+            "notes": []
+          },
+          {
+            "ticker": "GFS",
+            "nameCn": "格罗方德",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-08-04",
+            "notes": []
+          },
+          {
+            "ticker": "UMC",
+            "nameCn": "联电",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-29",
+            "notes": []
+          },
+          {
+            "ticker": "ASML",
+            "nameCn": "阿斯麦",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-15",
+            "notes": []
+          },
+          {
+            "ticker": "AMAT",
+            "nameCn": "应用材料",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-04-30",
+            "nextReportDate": "2026-08-14",
+            "notes": []
+          },
+          {
+            "ticker": "LRCX",
+            "nameCn": "拉姆研究",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-30",
+            "notes": []
+          },
+          {
+            "ticker": "KLAC",
+            "nameCn": "科磊",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-31",
+            "notes": []
+          },
+          {
+            "ticker": "MU",
+            "nameCn": "美光科技",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-02-28",
+            "nextReportDate": "2026-06-25",
+            "notes": []
+          },
+          {
+            "ticker": "SNPS",
+            "nameCn": "新思科技",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-04-30",
+            "nextReportDate": "2026-05-28",
+            "notes": []
+          },
+          {
+            "ticker": "CDNS",
+            "nameCn": "楷登电子",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-28",
+            "notes": []
+          },
+          {
+            "ticker": "ASX",
+            "nameCn": "日月光投控",
+            "refreshStatus": "full",
+            "primarySource": "yfinance",
+            "hasMetrics": true,
+            "lastReportedAt": "2026-03-31",
+            "nextReportDate": "2026-07-30",
+            "notes": []
+          }
+        ]
+      }
+    }
+  ]
+}

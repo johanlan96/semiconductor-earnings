@@ -1,0 +1,16 @@
+{
+  "name": "semiconductor-earnings-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "update-data": "node scripts/update-data.mjs",
+    "update-data:official": "node scripts/update-data.mjs --official-only",
+    "update-data:official-core": "node scripts/update-data.mjs --official-only --tickers=NVDA,AMD",
+    "update-data:core": "node scripts/update-data.mjs --tickers=NVDA,AMD",
+    "refresh-plan": "node scripts/run-refresh-plan.mjs",
+    "generate-narrative-drafts": "node scripts/generate-narrative-drafts.mjs",
+    "apply-narrative-drafts": "node scripts/apply-narrative-drafts.mjs",
+    "serve": "python3 -m http.server 4173"
+  }
+}
