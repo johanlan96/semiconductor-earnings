@@ -1,61 +1,43 @@
 {
-  "generatedAt": "2026-06-14T08:12:10.703Z",
-  "asOfDate": "2026-06-14",
+  "generatedAt": "2026-06-15T06:38:36.219Z",
+  "asOfDate": "2026-06-15",
   "source": "yfinance+official",
-  "mode": "targeted",
-  "tickers": [
-    "UMC",
-    "TSM",
-    "ASX"
-  ],
+  "mode": "full",
+  "tickers": null,
   "stats": {
-    "fullSuccess": 3,
+    "fullSuccess": 25,
     "partialSuccess": 0,
     "fallback": 0
   },
   "updatedTickers": [
+    "NVDA",
+    "AMD",
+    "AVGO",
+    "QCOM",
+    "ARM",
+    "MRVL",
+    "MPWR",
+    "INTC",
+    "TXN",
+    "ADI",
+    "ON",
+    "MCHP",
+    "NXPI",
+    "STM",
     "TSM",
+    "GFS",
     "UMC",
+    "ASML",
+    "AMAT",
+    "LRCX",
+    "KLAC",
+    "MU",
+    "SNPS",
+    "CDNS",
     "ASX"
   ],
   "fallbackTickers": [],
   "companies": [
-    {
-      "ticker": "TSM",
-      "nameCn": "台积电",
-      "refreshStatus": "full",
-      "primarySource": "yfinance",
-      "hasMetrics": true,
-      "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-16",
-      "notes": [
-        "yfinance: normalized from TWD to USD using FX baseline"
-      ]
-    },
-    {
-      "ticker": "UMC",
-      "nameCn": "联电",
-      "refreshStatus": "full",
-      "primarySource": "yfinance",
-      "hasMetrics": true,
-      "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-29",
-      "notes": [
-        "yfinance: normalized from TWD to USD using FX baseline"
-      ]
-    },
-    {
-      "ticker": "ASX",
-      "nameCn": "日月光投控",
-      "refreshStatus": "full",
-      "primarySource": "yfinance",
-      "hasMetrics": true,
-      "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-30",
-      "notes": [
-        "yfinance: normalized from TWD to USD using FX baseline"
-      ]
-    },
     {
       "ticker": "NVDA",
       "nameCn": "英伟达",
@@ -63,7 +45,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-04-30",
-      "nextReportDate": "2026-08-27",
+      "nextReportDate": "2026-08-26",
       "notes": []
     },
     {
@@ -73,7 +55,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-08-05",
+      "nextReportDate": "2026-08-04",
       "notes": []
     },
     {
@@ -83,7 +65,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-04-30",
-      "nextReportDate": "2026-09-04",
+      "nextReportDate": "2026-09-03",
       "notes": []
     },
     {
@@ -93,7 +75,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-30",
+      "nextReportDate": "2026-07-29",
       "notes": []
     },
     {
@@ -103,7 +85,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-30",
+      "nextReportDate": "2026-07-29",
       "notes": []
     },
     {
@@ -113,7 +95,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-04-30",
-      "nextReportDate": "2026-08-28",
+      "nextReportDate": "2026-08-27",
       "notes": []
     },
     {
@@ -123,7 +105,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-31",
+      "nextReportDate": "2026-07-30",
       "notes": []
     },
     {
@@ -133,7 +115,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-24",
+      "nextReportDate": "2026-07-23",
       "notes": []
     },
     {
@@ -143,7 +125,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-23",
+      "nextReportDate": "2026-07-22",
       "notes": []
     },
     {
@@ -173,7 +155,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-08-07",
+      "nextReportDate": "2026-08-06",
       "notes": []
     },
     {
@@ -183,7 +165,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-28",
+      "nextReportDate": "2026-07-27",
       "notes": []
     },
     {
@@ -197,6 +179,18 @@
       "notes": []
     },
     {
+      "ticker": "TSM",
+      "nameCn": "台积电",
+      "refreshStatus": "full",
+      "primarySource": "yfinance",
+      "hasMetrics": true,
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-16",
+      "notes": [
+        "yfinance: normalized from TWD to USD using FX baseline"
+      ]
+    },
+    {
       "ticker": "GFS",
       "nameCn": "格罗方德",
       "refreshStatus": "full",
@@ -205,6 +199,18 @@
       "lastReportedAt": "2026-03-31",
       "nextReportDate": "2026-08-04",
       "notes": []
+    },
+    {
+      "ticker": "UMC",
+      "nameCn": "联电",
+      "refreshStatus": "full",
+      "primarySource": "yfinance",
+      "hasMetrics": true,
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-29",
+      "notes": [
+        "yfinance: normalized from TWD to USD using FX baseline"
+      ]
     },
     {
       "ticker": "ASML",
@@ -223,7 +229,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-04-30",
-      "nextReportDate": "2026-08-14",
+      "nextReportDate": "2026-08-13",
       "notes": []
     },
     {
@@ -233,7 +239,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-30",
+      "nextReportDate": "2026-07-29",
       "notes": []
     },
     {
@@ -243,7 +249,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-31",
+      "nextReportDate": "2026-07-30",
       "notes": []
     },
     {
@@ -253,7 +259,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-02-28",
-      "nextReportDate": "2026-06-25",
+      "nextReportDate": "2026-06-24",
       "notes": []
     },
     {
@@ -263,7 +269,7 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-04-30",
-      "nextReportDate": "2026-05-28",
+      "nextReportDate": "2026-05-27",
       "notes": []
     },
     {
@@ -273,8 +279,20 @@
       "primarySource": "yfinance",
       "hasMetrics": true,
       "lastReportedAt": "2026-03-31",
-      "nextReportDate": "2026-07-28",
+      "nextReportDate": "2026-07-27",
       "notes": []
+    },
+    {
+      "ticker": "ASX",
+      "nameCn": "日月光投控",
+      "refreshStatus": "full",
+      "primarySource": "yfinance",
+      "hasMetrics": true,
+      "lastReportedAt": "2026-03-31",
+      "nextReportDate": "2026-07-30",
+      "notes": [
+        "yfinance: normalized from TWD to USD using FX baseline"
+      ]
     }
   ]
 }

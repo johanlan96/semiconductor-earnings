@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-06-14T02:53:42.803Z",
+  "generatedAt": "2026-06-15T06:38:36.229Z",
   "runs": [
     {
       "name": "full-yfinance-primary",
       "command": "node scripts/update-data.mjs",
-      "startedAt": "2026-06-14T02:51:40.325Z",
-      "endedAt": "2026-06-14T02:53:42.802Z",
+      "startedAt": "2026-06-15T06:38:21.803Z",
+      "endedAt": "2026-06-15T06:38:36.228Z",
       "exitCode": 0,
-      "stdout": "Generated data/earnings-dashboard.json and data/earnings-dashboard.js using yfinance+fmp-fallback.\nWrote data/last-refresh-report.json.\nRefresh stats: {\"fullSuccess\":25,\"partialSuccess\":0,\"fallback\":0}",
+      "stdout": "Generated data/earnings-dashboard.json and data/earnings-dashboard.js using yfinance+official.\nWrote data/last-refresh-report.json.\nRefresh stats: {\"fullSuccess\":25,\"partialSuccess\":0,\"fallback\":0}",
       "stderr": "",
       "refreshReport": {
-        "generatedAt": "2026-06-14T02:53:42.790Z",
-        "asOfDate": "2026-06-14",
-        "source": "yfinance+fmp-fallback",
+        "generatedAt": "2026-06-15T06:38:36.219Z",
+        "asOfDate": "2026-06-15",
+        "source": "yfinance+official",
         "mode": "full",
         "tickers": null,
         "stats": {
@@ -56,7 +56,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-04-30",
-            "nextReportDate": "2026-08-27",
+            "nextReportDate": "2026-08-26",
             "notes": []
           },
           {
@@ -66,7 +66,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
-            "nextReportDate": "2026-08-05",
+            "nextReportDate": "2026-08-04",
             "notes": []
           },
           {
@@ -76,7 +76,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-04-30",
-            "nextReportDate": "2026-09-04",
+            "nextReportDate": "2026-09-03",
             "notes": []
           },
           {
@@ -86,7 +86,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
-            "nextReportDate": "2026-07-30",
+            "nextReportDate": "2026-07-29",
             "notes": []
           },
           {
@@ -96,7 +96,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
-            "nextReportDate": "2026-07-30",
+            "nextReportDate": "2026-07-29",
             "notes": []
           },
           {
@@ -106,7 +106,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-04-30",
-            "nextReportDate": "2026-08-28",
+            "nextReportDate": "2026-08-27",
             "notes": []
           },
           {
@@ -116,7 +116,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
-            "nextReportDate": "2026-07-31",
+            "nextReportDate": "2026-07-30",
             "notes": []
           },
           {
@@ -126,7 +126,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
-            "nextReportDate": "2026-07-24",
+            "nextReportDate": "2026-07-23",
             "notes": []
           },
           {
@@ -136,7 +136,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
-            "nextReportDate": "2026-07-23",
+            "nextReportDate": "2026-07-22",
             "notes": []
           },
           {
@@ -166,7 +166,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
-            "nextReportDate": "2026-08-07",
+            "nextReportDate": "2026-08-06",
             "notes": []
           },
           {
@@ -176,7 +176,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
-            "nextReportDate": "2026-07-28",
+            "nextReportDate": "2026-07-27",
             "notes": []
           },
           {
@@ -197,7 +197,9 @@
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
             "nextReportDate": "2026-07-16",
-            "notes": []
+            "notes": [
+              "yfinance: normalized from TWD to USD using FX baseline"
+            ]
           },
           {
             "ticker": "GFS",
@@ -217,7 +219,9 @@
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
             "nextReportDate": "2026-07-29",
-            "notes": []
+            "notes": [
+              "yfinance: normalized from TWD to USD using FX baseline"
+            ]
           },
           {
             "ticker": "ASML",
@@ -236,7 +240,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-04-30",
-            "nextReportDate": "2026-08-14",
+            "nextReportDate": "2026-08-13",
             "notes": []
           },
           {
@@ -246,7 +250,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
-            "nextReportDate": "2026-07-30",
+            "nextReportDate": "2026-07-29",
             "notes": []
           },
           {
@@ -256,7 +260,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
-            "nextReportDate": "2026-07-31",
+            "nextReportDate": "2026-07-30",
             "notes": []
           },
           {
@@ -266,7 +270,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-02-28",
-            "nextReportDate": "2026-06-25",
+            "nextReportDate": "2026-06-24",
             "notes": []
           },
           {
@@ -276,7 +280,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-04-30",
-            "nextReportDate": "2026-05-28",
+            "nextReportDate": "2026-05-27",
             "notes": []
           },
           {
@@ -286,7 +290,7 @@
             "primarySource": "yfinance",
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
-            "nextReportDate": "2026-07-28",
+            "nextReportDate": "2026-07-27",
             "notes": []
           },
           {
@@ -297,7 +301,9 @@
             "hasMetrics": true,
             "lastReportedAt": "2026-03-31",
             "nextReportDate": "2026-07-30",
-            "notes": []
+            "notes": [
+              "yfinance: normalized from TWD to USD using FX baseline"
+            ]
           }
         ]
       }
