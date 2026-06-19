@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-06-18T06:09:59.093Z",
+  "generatedAt": "2026-06-19T06:30:37.555Z",
   "runs": [
     {
       "name": "full-yfinance-primary",
       "command": "node scripts/update-data.mjs",
-      "startedAt": "2026-06-18T06:09:45.522Z",
-      "endedAt": "2026-06-18T06:09:59.092Z",
+      "startedAt": "2026-06-19T06:30:24.359Z",
+      "endedAt": "2026-06-19T06:30:37.554Z",
       "exitCode": 0,
       "stdout": "Generated data/earnings-dashboard.json and data/earnings-dashboard.js using yfinance+official.\nWrote data/last-refresh-report.json.\nRefresh stats: {\"fullSuccess\":25,\"partialSuccess\":0,\"fallback\":0}",
       "stderr": "",
       "refreshReport": {
-        "generatedAt": "2026-06-18T06:09:59.083Z",
-        "asOfDate": "2026-06-18",
+        "generatedAt": "2026-06-19T06:30:37.546Z",
+        "asOfDate": "2026-06-19",
         "source": "yfinance+official",
         "mode": "full",
         "tickers": null,

@@ -1,20 +1,20 @@
 window.__EARNINGS_DASHBOARD_DATA__ = {
-  "generatedAt": "2026-06-18T06:09:59.083Z",
+  "generatedAt": "2026-06-19T06:30:37.546Z",
   "source": "yfinance+official",
-  "asOfDate": "2026-06-18",
+  "asOfDate": "2026-06-19",
   "fxRates": {
-    "asOf": "2026-06-17 00:00 UTC",
+    "asOf": "2026-06-18 00:00 UTC",
     "base": "USD",
     "rates": {
       "USD": 1,
       "TWD": 0.031,
-      "KRW": 0.000659,
-      "JPY": 0.006238,
-      "EUR": 1.159098
+      "KRW": 0.00065,
+      "JPY": 0.006214,
+      "EUR": 1.146106
     },
     "note": "汇率由 Frankfurter 最新中间价换算为 USD，用于跨市场口径统一展示；正式投研场景建议在披露日锁定当日汇率。",
     "source": "Frankfurter",
-    "fetchedAt": "2026-06-18T06:09:45.772Z"
+    "fetchedAt": "2026-06-19T06:30:24.729Z"
   },
   "companies": [
     {
@@ -65,12 +65,12 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:45.773Z"
+        "fetchedAt": "2026-06-19T06:30:24.729Z"
       },
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "NVIDIA",
-        "marketCap": 4956827502166.75,
+        "marketCap": 5103122549133.3,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-04-30",
@@ -79,7 +79,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-07-31",
           "2025-04-30"
         ],
-        "fetchedAt": "2026-06-18T06:09:45.773Z",
+        "fetchedAt": "2026-06-19T06:30:24.729Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-04-30"
@@ -137,7 +137,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.082Z"
+        "fetchedAt": "2026-06-19T06:30:37.544Z"
       },
       "overrideMeta": {
         "used": true,
@@ -146,7 +146,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Advanced Micro Devices",
-        "marketCap": 835650183627.05,
+        "marketCap": 876235857417.51,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -157,7 +157,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2024-12-31",
           "2024-09-30"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.082Z",
+        "fetchedAt": "2026-06-19T06:30:37.544Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -211,7 +211,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.082Z"
+        "fetchedAt": "2026-06-19T06:30:37.544Z"
       },
       "overrideMeta": {
         "used": true,
@@ -220,7 +220,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Broadcom",
-        "marketCap": 1869253230756.23,
+        "marketCap": 1957030643485.27,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-04-30",
@@ -231,7 +231,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-01-31",
           "2024-10-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.082Z",
+        "fetchedAt": "2026-06-19T06:30:37.544Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-04-30"
@@ -285,7 +285,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.082Z"
+        "fetchedAt": "2026-06-19T06:30:37.544Z"
       },
       "overrideMeta": {
         "used": true,
@@ -294,7 +294,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Qualcomm",
-        "marketCap": 224470381286.62,
+        "marketCap": 238319940643.31,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -305,7 +305,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2024-12-31",
           "2024-09-30"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.082Z",
+        "fetchedAt": "2026-06-19T06:30:37.544Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -359,7 +359,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.082Z"
+        "fetchedAt": "2026-06-19T06:30:37.544Z"
       },
       "overrideMeta": {
         "used": true,
@@ -368,7 +368,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Arm Holdings",
-        "marketCap": 445710869736.06,
+        "marketCap": 467609083084.4,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -378,7 +378,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-03-31",
           "2024-12-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.082Z",
+        "fetchedAt": "2026-06-19T06:30:37.544Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -432,7 +432,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.082Z"
+        "fetchedAt": "2026-06-19T06:30:37.544Z"
       },
       "overrideMeta": {
         "used": true,
@@ -441,7 +441,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Marvell Technology",
-        "marketCap": 253507673191.95,
+        "marketCap": 271695372253.42,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-04-30",
@@ -451,7 +451,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-04-30",
           "2025-01-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.082Z",
+        "fetchedAt": "2026-06-19T06:30:37.544Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-04-30"
@@ -505,7 +505,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.082Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -514,7 +514,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Monolithic Power Systems",
-        "marketCap": 71149493842.96,
+        "marketCap": 76823432409.01,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -523,7 +523,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-06-30",
           "2025-03-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.082Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -577,7 +577,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.082Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -586,7 +586,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Intel",
-        "marketCap": 608648592330.93,
+        "marketCap": 673433767608.64,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -595,7 +595,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-06-30",
           "2025-03-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.082Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -649,7 +649,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.082Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -658,7 +658,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Texas Instruments",
-        "marketCap": 274738816190.89,
+        "marketCap": 293832545170.82,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -669,7 +669,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2024-12-31",
           "2024-09-30"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.082Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -723,7 +723,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.082Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -732,7 +732,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Analog Devices",
-        "marketCap": 201873229673.89,
+        "marketCap": 211619831236.28,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-04-30",
@@ -743,7 +743,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-01-31",
           "2024-10-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.082Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-04-30"
@@ -797,7 +797,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.082Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -806,7 +806,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "On Semiconductor",
-        "marketCap": 43903655615.8,
+        "marketCap": 47286245157.3,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -817,7 +817,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2024-12-31",
           "2024-09-30"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.082Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -871,7 +871,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -880,7 +880,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Microchip Technology",
-        "marketCap": 51015081465.77,
+        "marketCap": 54083248045.65,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -889,7 +889,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-06-30",
           "2025-03-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -943,7 +943,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -952,7 +952,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "NXP Semiconductors",
-        "marketCap": 75286878839.72,
+        "marketCap": 79091612144.6,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -963,7 +963,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2024-12-31",
           "2024-09-30"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -1017,7 +1017,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1026,7 +1026,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "STMicroelectronics",
-        "marketCap": 65201937919.28,
+        "marketCap": 69672571308.22,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -1035,7 +1035,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-06-30",
           "2025-03-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -1091,7 +1091,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
         "notes": [
           "yfinance: normalized from TWD to USD using FX baseline"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1100,7 +1100,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "TSMC",
-        "marketCap": 2241334713062.22,
+        "marketCap": 2396773345562.98,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -1108,9 +1108,10 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-09-30",
           "2025-06-30",
           "2025-03-31",
-          "2024-12-31"
+          "2024-12-31",
+          "2024-09-30"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -1164,7 +1165,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1173,7 +1174,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "GlobalFoundries",
-        "marketCap": 44247234838.22,
+        "marketCap": 47094993501.09,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -1184,7 +1185,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2024-12-31",
           "2024-09-30"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -1240,7 +1241,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
         "notes": [
           "yfinance: normalized from TWD to USD using FX baseline"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1249,7 +1250,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "United Microelectronics",
-        "marketCap": 54602080776.57,
+        "marketCap": 60423625326.48,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -1260,7 +1261,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2024-12-31",
           "2024-09-30"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -1314,7 +1315,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1323,7 +1324,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "ASML Holding",
-        "marketCap": 719894660279.65,
+        "marketCap": 743732780498.34,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -1333,7 +1334,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-03-31",
           "2024-12-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -1387,7 +1388,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.545Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1396,7 +1397,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Applied Materials",
-        "marketCap": 470754411666.96,
+        "marketCap": 489960292217.03,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-04-30",
@@ -1406,7 +1407,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-04-30",
           "2025-01-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.545Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-04-30"
@@ -1460,7 +1461,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.546Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1469,7 +1470,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Lam Research",
-        "marketCap": 467926673860.78,
+        "marketCap": 486509703245.76,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -1480,7 +1481,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2024-12-31",
           "2024-09-30"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.546Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -1534,7 +1535,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.546Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1543,7 +1544,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "KLA Corporation",
-        "marketCap": 311847075302.29,
+        "marketCap": 339056790318.45,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -1553,7 +1554,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-03-31",
           "2024-12-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.546Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -1607,7 +1608,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.546Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1616,7 +1617,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Micron Technology",
-        "marketCap": 1176440818584.52,
+        "marketCap": 1278839125480.46,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-02-28",
@@ -1625,7 +1626,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-05-31",
           "2025-02-28"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.546Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-02-28"
@@ -1679,7 +1680,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.546Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1688,7 +1689,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Synopsys",
-        "marketCap": 88413661655.58,
+        "marketCap": 87220749200.67,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-04-30",
@@ -1699,7 +1700,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-01-31",
           "2024-10-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.546Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-04-30"
@@ -1753,7 +1754,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "yfinance": true
         },
         "notes": [],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.546Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1762,7 +1763,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "Cadence",
-        "marketCap": 107457915283.45,
+        "marketCap": 106848364280.27,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -1771,7 +1772,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-06-30",
           "2025-03-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.546Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
@@ -1827,7 +1828,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
         "notes": [
           "yfinance: normalized from TWD to USD using FX baseline"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z"
+        "fetchedAt": "2026-06-19T06:30:37.546Z"
       },
       "overrideMeta": {
         "used": true,
@@ -1836,7 +1837,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
       "providerMeta": {
         "primarySource": "yfinance",
         "companyName": "ASE Group",
-        "marketCap": 82141327327.23,
+        "marketCap": 88986444214.77,
         "currency": "USD",
         "yfinanceIncomeColumns": [
           "2026-03-31",
@@ -1845,7 +1846,7 @@ window.__EARNINGS_DASHBOARD_DATA__ = {
           "2025-06-30",
           "2025-03-31"
         ],
-        "fetchedAt": "2026-06-18T06:09:59.083Z",
+        "fetchedAt": "2026-06-19T06:30:37.546Z",
         "sector": null,
         "period": null,
         "latestStatementDate": "2026-03-31"
